@@ -10,6 +10,8 @@
     <property name="max" value="100"/>
     <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
   </module>
+  <!-- Brandon Added UnusedImports checkstyle rule-->
+  <module name="UnusedImports"/>
           
   <module name="SuppressWarningsFilter"/>
 
