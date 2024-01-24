@@ -11,7 +11,8 @@
     <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
   </module>
   <!-- Brandon Added UnusedImports checkstyle rule-->
-  <module name="UnusedImports"/>
+  <module name="UnusedImports">
+  </module>
           
   <module name="SuppressWarningsFilter"/>
 
