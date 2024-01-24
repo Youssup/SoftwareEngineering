@@ -9,6 +9,6 @@ class CheckstyleTest{
         
     //Joel's checkstyle error: WhiteSpace
         System.out.printf("\n", "hello");
-        System.out.printf("\n",1);
+       // System.out.printf("\n",1);
     }
 }
