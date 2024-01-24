@@ -10,6 +10,10 @@
     <property name="max" value="100"/>
     <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
   </module>
+<!--Joel added whiteSpace after checkstyle rule-->
+    <module name="WhitespaceAfter">
+      <property name="tokens" value="COMMA"/>
+    </module>
           
   <module name="SuppressWarningsFilter"/>
 
