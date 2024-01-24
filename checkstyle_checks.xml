@@ -31,6 +31,10 @@
   </module>
 
   <module name="TreeWalker">
+  <!--Joel Added WhitespaceAfter checklist rule -->
+    <module name="WhitespaceAfter">
+      <property name="tokens" value="COMMA"/>
+    </module>
   <!-- Brandon placed UnusedImports checkstyle rule -->  
     <module name="UnusedImports"/>
     <module name="OuterTypeFilename"/>
