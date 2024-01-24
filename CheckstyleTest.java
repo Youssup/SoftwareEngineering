@@ -1,6 +1,8 @@
 //Testing Brandon's UnusedImports rule below
-import java.util.Scanner;
-import javax.swing.*;
+//import java.util.Scanner;
+//import javax.swing.*;
+
+//Fixed checkstyle rule by removing those unneeded imports
 
 class CheckstyleTest{
     public static void main(String [] args){
