@@ -1,2 +1,2 @@
 # SoftwareEngineering
-Software Engineering project Yousup Song, Brandon Stewart, Joel Matthew
+Software Engineering project Yousup Song, Brandon Stewart, Joel Mathew
