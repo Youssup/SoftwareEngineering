@@ -31,7 +31,7 @@
   </module>
 
   <module name="TreeWalker">
-            <!--Joel Added WhitespaceAfter checklist rule -->
+  <!--Joel Added WhitespaceAfter checklist rule -->
     <module name="WhitespaceAfter">
       <property name="tokens" value="COMMA"/>
     </module>
