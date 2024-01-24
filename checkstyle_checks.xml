@@ -31,6 +31,8 @@
   </module>
 
   <module name="TreeWalker">
+  <!-- Brandon placed UnusedImports checkstyle rule -->  
+    <module name="UnusedImports"/>
     <module name="OuterTypeFilename"/>
     <module name="IllegalTokenText">
       <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
