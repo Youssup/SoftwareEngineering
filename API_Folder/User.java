@@ -1,4 +1,4 @@
-public class UserAPI implements ComputerEngineAPI {
+public class User implements ComputerEngine {
     /*recive request from user method
 
     Sever to client and client to Server */
@@ -13,7 +13,7 @@ public class UserAPI implements ComputerEngineAPI {
 
 }
 
-public interface UserInterface {
+public interface UserAPI {
    User jobinfoSend(User inputData);
    
 }
