@@ -3,9 +3,9 @@ public class User implements ComputerEngine {
 
     Sever to client and client to Server */
 
-    public User jobInfoSend(User inputData){
+    public Data jobInfoSend(Data inputData){
         //give info on job and retrives the data from the Computer Engine
-        User outputData= ComputerEngine.sending(InputData);
+        Data outputData= ComputerEngine.sendToUser(InputData);
         
         //it will return the data from the Computer Engine
         return outputData;
