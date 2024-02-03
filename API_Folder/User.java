@@ -14,6 +14,7 @@ public class User implements ComputerEngine {
 }
 
 public interface UserAPI {
+    //Sending User Data to the Server Computer Engine and receiving the outputData back from the Computer Engine
    User jobinfoSend(User inputData);
    
 }
