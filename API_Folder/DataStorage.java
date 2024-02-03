@@ -4,7 +4,7 @@ public class DataStorage implements DataStorageInterface{
         //Some magical algorithm to translate data will exist below
         //This is the 'write' poriton of the DS
         Data translatedData = computeDataTranslate(data);
-        return translateddata;
+        return translatedData;
     }
 
     //Send data back to CE translated
