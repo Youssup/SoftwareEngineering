@@ -3,7 +3,7 @@ public class UserAPI implements ComputerEngineAPI {
 
     Sever to client and client to Server */
 
-    public User JobInfoSend(User inputData){
+    public User jobInfoSend(User inputData){
         //give info on job and retrives the data from the Computer Engine
         User outputData= ComputerEngine.sending(InputData);
         
@@ -14,6 +14,6 @@ public class UserAPI implements ComputerEngineAPI {
 }
 
 public interface UserInterface {
-   User JobinfoSend(User inputData);
+   User jobinfoSend(User inputData);
    
 }
