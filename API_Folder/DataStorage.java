@@ -1,22 +1,25 @@
-public class DataStorage implements DataStorageInterface {
-    //Receive computed data
-    public DataStorage receiveData(Data data){
-        //Receive computed data from CE
-        //During receipt, data is translated into a format that can be used by the DataStorageAPI
-        //Translated data is written to the database, and a response is sent back to the CE
+public class DataStorage implements DataStorageInterface{
+    //Receive computed data from CE and translate
+    public DataStorage userTranslate(Data data){
+        //Some magical algorithm to translate data will exist below
+        //This is the 'write' poriton of the DS
+        Data translatedData = computeDataTranslate(data);
+        return translateddata;
+    }
+
+    //Send data back to CE translated
+    public DataStorage computeDataTranslate(Data translatedData){
+        //Some magical algorithm will place the translated data
+        //into the correct format for the CE to read
+        Data data = translatedData;
         return data;
     }
 
-    //Send data back to CE translated 
-    public DataStorage sendData(Data data){
-        //Send data to CE
-        return data;
-    }
 }
 
 public interface DataStorageInterface {
-    //Method to receive and translate data from CE
-    DataStorage receiveData(Data data);
+    //Method to translate data for user
+    DataStorage userTranslate(Data data);
     //Method to send data to CE
-    DataStorage sendData(Data data);
+    DataStorage computeDataTranslate(Data data);
 }
