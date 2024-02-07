@@ -8,4 +8,7 @@ public interface ClientAPI {
 
      //read the delimiter from the user
      public char readDelimiter();
+
+    //the Client will input a Compute they want register
+   // public Compute ComuteChoice();
 }
