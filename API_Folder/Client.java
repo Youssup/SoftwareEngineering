@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+import javax.xml.crypto.Data;
+
+//the front end of the program where the user can interact
+public class Client {
+    public Data readData(){
+        //read the data from the user
+        return scanner.nextLine();
+    }
+    public char readDelimiter() {
+        //read the delimiter from the user
+        return scanner.nextLine();
+    
+    }
+    public void main(String[] args) {
+        //create the java program that the user will use
+        Scanner scanner = new Scanner(System.in);
+    }
+}
+
+//input data = data from the user

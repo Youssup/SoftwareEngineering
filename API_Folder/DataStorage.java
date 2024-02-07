@@ -1,25 +1,14 @@
-public class DataStorage implements DataStorageInterface{
-    //Receive computed data from CE and translate
-    public Data userTranslate(Data data){
-        //Some magical algorithm to translate data will exist below
-        //This is the 'write' poriton of the DS
-        Data translatedData = computeDataTranslate(data);
-        return translatedData;
+public class DataStorage {
+    //Receive computed data from ComputeEngine and translate so that the user can understand
+    public int[] userTranslate(Data translatedData, char delimiter){
+        //retrieve computed data
     }
 
-    //Send data back to CE translated
-    public Data computeDataTranslate(Data translatedData){
-        //Some magical algorithm will place the translated data
-        //into the correct format for the CE to read
-        Data data = translatedData;
-        return data;
+    //Translate the data so that the Computer Engine can understand
+    public int[] computeDataTranslate(Data inputData, char delimiter){
+        //An algorithm to seperate the data using the delimiter
     }
-
 }
-
-public interface DataStorageInterface {
-    //Method to translate data for user
-    DataStorage userTranslate(Data data);
-    //Method to send data to CE
-    DataStorage computeDataTranslate(Data data);
-}
+//translated data = data that the Compute Engine can understand
+//delimiter = a character that separates the data
+//input data = data from the user
