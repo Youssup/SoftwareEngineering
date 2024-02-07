@@ -1,5 +1,6 @@
-public class DataStorage {
-    //Receive computed data from ComputeEngine and translate so that the user can understand
+public class DataStorage implements DataStorageAPI {
+    //Receive computed data from ComputeEngine
+    //and translate so that the user can understand
     public int[] userTranslate(Data translatedData, char delimiter){
         //retrieve computed data
     }
