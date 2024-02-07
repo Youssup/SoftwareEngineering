@@ -3,7 +3,7 @@ import java.util.Scanner;
 import javax.xml.crypto.Data;
 
 //the front end of the program where the user can interact
-public class Client {
+public class Client implements ClientAPI{
     public Data readData(){
         //read the data from the user
         return scanner.nextLine();
