@@ -14,9 +14,13 @@ public class Client implements ClientAPI{
     
     }
     public void main(String[] args) {
-        //create the java program that the user will use
+        //create the Java program that the user will use
         Scanner scanner = new Scanner(System.in);
     }
 }
 
 //input data = data from the user
+
+//Notes
+//Client Data= two Integers
+//Char Delimiter= HashSet<Char> to add a stream of delimiters
