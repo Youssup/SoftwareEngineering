@@ -22,5 +22,5 @@ public class Client implements ClientAPI{
 //input data = data from the user
 
 //Notes
-//Client Data= two Integers
-//Char Delimiter= HashSet<Char> to add a stream of delimiters
+//Client Data= 2 Integer
+//Char Delimiter= char Delimiter
