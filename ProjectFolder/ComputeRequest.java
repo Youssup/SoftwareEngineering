@@ -1,6 +1,6 @@
 
 public interface ComputeRequest {
-	InputConfig getInputConfig();
-	OutputConfig getOutputConfig();
+	int[] getInputConfig();
+	int[] getOutputConfig();
 	char getDelimeter();
 }
