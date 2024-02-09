@@ -4,6 +4,10 @@ import java.util.ArrayList;
 // We will functionaly call it DataStorage
 
 public class DataStorageAPI implements DataStore {
+    //Adding ComputeEngineAPI as a dependency
+    //This will take the responsibility of the computation
+    //and draw the result of the computation for translation
+    private ComputeEngine computeEngine;
 	
     public DataStorageAPI(){
         //We can decide what attributes to initialize here
@@ -11,9 +15,6 @@ public class DataStorageAPI implements DataStore {
 
     public Iterable<Integer> read(InputConfig input){
         ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        list.add(5);
-        list.add(10);
         return list;
     }
 
