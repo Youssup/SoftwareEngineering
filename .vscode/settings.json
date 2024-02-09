@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "ProjectFolder\\byte-buddy-1.14.11.jar",
+        "ProjectFolder\\byte-buddy-agent-1.14.11.jar",
+        "ProjectFolder\\mockito-core-5.10.0.jar",
+        "ProjectFolder\\objenesis-3.3.jar"
+    ]
+}
