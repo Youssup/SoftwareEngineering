@@ -1,6 +1,8 @@
 package src;
 import java.util.Scanner;
 public class ClientAPI {
+
+   ComputeEngineAPI comp=new ComputeEngine();
    //Client Inputing 2 integers
     public int[] getInputConfig(){
         Scanner myObj=new Scanner(System.in);
