@@ -7,7 +7,7 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator
     //needs the to decipher what the job is from the client
     private ClientAPI client;
     //needs to retrieve the single outputs from the data storage
-    priavte DataStorageAPI dataStorage;
+    private DataStorageAPI dataStorage;
     //Computes the result using the ackermann function
     public String compute(int value) 
     {
