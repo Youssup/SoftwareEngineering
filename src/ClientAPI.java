@@ -1,26 +1,28 @@
 package src;
-import ProjectFolder.ComputeRequest;
+import project.ComputeRequest;
 import java.util.Scanner;
 public class ClientAPI {
     //objects
-   private ClientAPI client=new ClientAPI();
+   //private ClientAPI client=new ClientAPI();
 
 
    //Client InputingConfig
-    public InputConfig getInputConfig(){
-        //Client inputing the data
-        InputConfig input=new InputConfig();
-        
-        return InputConfig;
+    public int[] getInputConfig(){
+        /*Client inputing the data
+        Scanner myObj=new Scanner(System.in);
+        System.out.println("Enter 2 integers: ");
+        int num1= myObj.nextInt();
+        int num2= myObj.nextInt();
+        myObj.close();*/
+        return new int[]{4 , 5};
     //Returning the InputConfig with the written data
     }
 
 
-	public OutputConfig getOutputConfig(){
+	public int[] getOutputConfig(){
 
 
-
-        return OutputConfig;
+        return new int[]{1,2};
     }
 
     //returns a delimeter that the Client wants
