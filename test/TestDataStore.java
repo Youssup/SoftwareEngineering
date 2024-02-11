@@ -1,11 +1,12 @@
+
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
 import java.util.ArrayList;
 
-//We will use Mockito to simnuate the behavior of our classes
+//We will use Mockito to simulate the behavior of our classes
 
-public class DataStoreTests {
+public class TestDataStore {
 
     @Test
     public void testRead() {

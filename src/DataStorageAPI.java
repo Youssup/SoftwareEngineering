@@ -8,10 +8,12 @@ public class DataStorageAPI implements DataStore {
     //Adding ComputeEngineAPI as a dependency
     //This will take the responsibility of the computation
     //and draw the result of the computation for translation
+
     private ComputeEngine computeEngine;
 	
     public DataStorageAPI(){
         //We can decide what attributes to initialize here
+        //May not need constructor
     }
 
     public Iterable<Integer> read(InputConfig input){
