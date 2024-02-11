@@ -4,8 +4,16 @@
         "ProjectFolder\\byte-buddy-1.14.11.jar",
         "ProjectFolder\\byte-buddy-agent-1.14.11.jar",
         "ProjectFolder\\mockito-core-5.10.0.jar",
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         "ProjectFolder\\objenesis-3.3.jar"
+=======
+        "ProjectFolder\\objenesis-3.3.jar",
+        "project\\byte-buddy-1.14.11.jar",
+        "project\\byte-buddy-agent-1.14.11.jar",
+        "project\\mockito-core-5.10.0.jar",
+        "project\\objenesis-3.3.jar"
+>>>>>>> 229aa2f07c810f5ab8c6ba45b61aa6a650bb97a4
     ],
     "java.debug.settings.onBuildFailureProceed": true
 =======
