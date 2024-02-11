@@ -1,4 +1,3 @@
-
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
@@ -9,37 +8,35 @@ import java.util.ArrayList;
 public class TestDataStore {
 
     @Test
-    public void testRead() {
-        //Mock InputConfig
-        InputConfig inputConfig = mock(InputConfig.class);
+    public void testRead(TestInputConfig input) {
+        //Mock TestInputConfig
+        TestInputConfig inputConfig = mock(TestInputConfig.class);
 
-        //Create a mock DataStore
-        DataStore dataStore = mock(DataStore.class);
+        //Create a mock TestDataStore
+        TestDataStore dataStore = mock(TestDataStore.class);
 
         //Set up the case we will test
         //Read in the inputConfig and return something
-        when(dataStore.read(inputConfig)).thenReturn(new ArrayList<Integer>());
+        when(dataStore.testRead(inputConfig)).thenReturn(new ArrayList<Integer>());
 
         //Test the read method(I had to return an ArrayList<Integer> because I couldn't return an Iterable<Integer> object)
-        Iterable<Integer> results = dataStore.read(inputConfig);
+        Iterable<Integer> results = dataStore.testRead(inputConfig);
 
     }
 
     @Test
-    public void testAppendSingleResult() {
+    public void testAppendSingleResult(TestOutputConfig output, String result) {
         //Create a mock OutputConfig
-        OutputConfig outputConfig = mock(OutputConfig.class);
-        //Basic result to test
-        String result = "Result";
+        TestOutputConfig outputConfig = mock(TestOutputConfig.class);
 
-        //Create a mock DataStore object
-        DataStore dataStore = mock(DataStore.class);
+        //Create a mock TestDataStore object
+        TestDataStore dataStore = mock(TestDataStore.class);
 
         //Set up mock case for the test
-        when(dataStore.appendSingleResult(outputConfig, result)).thenReturn(mock(WriteResult.class));
+        when(dataStore.testAppendSingleResult(outputConfig, result)).thenReturn(mock(WriteResult.class));
 
         //Test the appendSingleResult method
-        WriteResult writeResult = dataStore.appendSingleResult(outputConfig, result);
+        WriteResult writeResult = dataStore.testAppendSingleResult(outputConfig, result);
 
     }
 }

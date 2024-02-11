@@ -4,7 +4,11 @@
         "ProjectFolder\\byte-buddy-1.14.11.jar",
         "ProjectFolder\\byte-buddy-agent-1.14.11.jar",
         "ProjectFolder\\mockito-core-5.10.0.jar",
-        "ProjectFolder\\objenesis-3.3.jar"
+        "ProjectFolder\\objenesis-3.3.jar",
+        "project\\byte-buddy-1.14.11.jar",
+        "project\\byte-buddy-agent-1.14.11.jar",
+        "project\\mockito-core-5.10.0.jar",
+        "project\\objenesis-3.3.jar"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }
