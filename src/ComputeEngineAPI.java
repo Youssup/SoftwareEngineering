@@ -1,4 +1,7 @@
 package src;
+import project.ComputeEngine;
+import project.ComputeRequest;
+import project.ComputeResult;
 public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator
 {
     //needs the to decipher what the job is from the client
