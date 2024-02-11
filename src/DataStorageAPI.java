@@ -1,15 +1,19 @@
 package src;
 import java.util.ArrayList;
+import project.DataStore;
+import project.InputConfig;
+import project.OutputConfig;
+import project.WriteResult;
 
 // This is an empty implementation of the DataStore interface
 // We will functionaly call it DataStorage
 
-public class DataStorageAPI implements DataStore {
+public class DataStorageAPI implements DataStore{
     //Adding ComputeEngineAPI as a dependency
     //This will take the responsibility of the computation
     //and draw the result of the computation for translation
 
-    private ComputeEngine computeEngine;
+    //private ComputeEngineAPI computeEngine;
 	
     public DataStorageAPI(){
         //We can decide what attributes to initialize here
