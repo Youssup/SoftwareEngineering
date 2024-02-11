@@ -6,10 +6,9 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.any;
 
 
-public class TestClientAPI {
+public class TestClientAPI implements{
     @Test
-    public void testClientAPI(){
+    public void testGetInputConfig(){
         ClientAPI cAPI= Mockito.mock(ClientAPI.class);
-//hi
     }
 }
