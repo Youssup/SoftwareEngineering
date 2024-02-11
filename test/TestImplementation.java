@@ -39,15 +39,29 @@ public class TestImplementation{
     //This main method will depict the infrastructure of the DataStorageAPI implementations
     public static void main(String[] args){
 
+        //Create a starting List of integers
         List<Integer> data = new ArrayList<Integer>();
         data.add(1);
         data.add(2);
         data.add(3);
+
+        //Create a TestInputConfig with the List of integers
         TestInputConfig inputConfig = new TestInputConfig(data);
 
+        //Create a TestDataStorageAPI object
         TestDataStorageAPI dataStore = new TestDataStorageAPI();
 
-        dataStore.testRead(inputConfig);
+        //Test the read method from the DataStorageAPI
+        //It takes in an inputConfig and returns an Iterable<Integer>
+        Iterable<Integer> results = dataStore.testRead(inputConfig);
+
+        //Test the appendSingleResult method from the DataStorageAPI
+        //It takes in an outputConfig and a result and returns a WriteResult
+
+        //
+
+        //Still need to formate the WriteResult class
+        //This will be the readable output at the end of our pipeline
 
         TestOutputConfig outputConfig = new TestOutputConfig();
         outputConfig.write("Hey dude!");

@@ -1,4 +1,5 @@
 package test;
+
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
@@ -6,15 +7,15 @@ import java.util.ArrayList;
 
 //We will use Mockito to simulate the behavior of our classes
 
-public class TestDataStoreAPI {
+public class TestDataStorageAPI {
 
     @Test
-    public void testRead(TestInputConfig input) {
-        //Mock TestInputConfig
-        TestInputConfig inputConfig = mock(TestInputConfig.class);
+    public void testRead() {
+        //Mock InputConfig
+        InputConfig inputConfig = mock(InputConfig.class);
 
         //Create a mock TestDataStore
-        TestDataStore dataStore = mock(TestDataStore.class);
+        TestDataStorageAPI dataStore = mock(DataStorage.class);
 
         //Set up the case we will test
         //Read in the inputConfig and return something
@@ -26,12 +27,15 @@ public class TestDataStoreAPI {
     }
 
     @Test
-    public void testAppendSingleResult(TestOutputConfig output, String result) {
-        //Create a mock OutputConfig
-        TestOutputConfig outputConfig = mock(TestOutputConfig.class);
+    public void testAppendSingleResult() {
+        //Create a mock OutputConfig (This is a simulated input object)
+        OutputConfig outputConfig = mock(OutputConfig.class);
+
+        //Create a dummy String result
+        String result = "Hey dude!";
 
         //Create a mock TestDataStore object
-        TestDataStore dataStore = mock(TestDataStore.class);
+        DataStorage dataStore = mock(DataStorage.class);
 
         //Set up mock case for the test
         when(dataStore.testAppendSingleResult(outputConfig, result)).thenReturn(mock(WriteResult.class));
