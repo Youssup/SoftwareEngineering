@@ -1,7 +1,7 @@
 package src;
 import project.ComputeRequest;
-import java.util.Scanner;
-public class ClientAPI {
+//import java.util.Scanner;
+public class ClientAPI implements ComputeRequest{
     //objects
    //private ClientAPI client=new ClientAPI();
 
