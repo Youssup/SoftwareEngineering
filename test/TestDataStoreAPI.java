@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 //We will use Mockito to simulate the behavior of our classes
 
-public class TestDataStore {
+public class TestDataStoreAPI {
 
     @Test
     public void testRead(TestInputConfig input) {
