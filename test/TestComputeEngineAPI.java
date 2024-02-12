@@ -26,10 +26,10 @@ public class TestComputeEngineAPI
     }
     @Test
     public void testRequest(){
-        ComputeEngineAPI ce = Mockito.mock(ComputeEngineAPI.class);
-        when(ce.compute(any(ComputeRequest.class))).thenReturn(ComputeResult.SUCCESS);
+        ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
+        when(computeEngine.compute(any(ComputeRequest.class))).thenReturn(ComputeResult.SUCCESS);
         ComputeRequest request = new ComputeRequest();
-        ce.compute(request);
+        computeEngine.compute(request);
     }
 }
 
@@ -50,7 +50,7 @@ class ComputeEngineIntegrationTest
         //We run it fully thorugh the program, into the Data Strorage as well,
         //we should a output Config of Array of string
         clientApi.getInputConfig(list);                                                           
-        datastore.appendSingleResult(any(OutputConfig.class), computeEngine.compute(datastore.read(list);));
+        datastore.appendSingleResult(any(OutputConfig.class), computeEngine.compute(datastore.read(list)));
         clientApi.getOutputConfig();
     }
     @Test
