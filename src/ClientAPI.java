@@ -27,8 +27,8 @@ public class ClientAPI implements ComputeRequest{
 
     //returns a delimeter that the Client wants
 	public char getDelimeter(){
-        char Deli= 'A';
-        return Deli;
+        char deli= 'A';
+        return deli;
     }
 }
 

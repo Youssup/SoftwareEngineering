@@ -11,14 +11,14 @@ import project.ComputingResult;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.any;
 import org.junit.Test;
-import org.junit.platform.reporting.shadow.org.opentest4j.reporting.events.core.Data;
+//import org.junit.platform.reporting.shadow.org.opentest4j.reportin
+//g.events.core.Data;
 
 import src.ClientAPI;
 import src.ComputeEngineAPI;
 import src.DataStorageAPI;
 
-public class TestComputeEngineAPI
-{
+public class TestComputeEngineAPI{
     @Test
     public void testAlgorithmCompute(){
         ComputeEngineAPI ce = Mockito.mock(ComputeEngineAPI.class);
@@ -28,7 +28,8 @@ public class TestComputeEngineAPI
     @Test
     public void testRequest(){
         ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-        when(computeEngine.compute(any(ComputingRequest.class))).thenReturn(ComputingResult.SUCCESS);
+        when(computeEngine.compute(any(ComputingRequest.class)))
+        .thenReturn(ComputingResult.SUCCESS);
         ComputingRequest request = new ComputingRequest();
         computeEngine.compute(request);
     }
@@ -37,8 +38,7 @@ public class TestComputeEngineAPI
 class ComputeEngineIntegrationTest {
     DataStorageAPI datastore = new DataStorageAPI();
     ComputeEngineAPI computeEngine = new ComputeEngineAPI();
-    public void testComputeEngineIntegration() 
-    {
+    public void testComputeEngineIntegration(){
         ClientAPI clientApi = new ClientAPI();
         //It should have pointer, poitning to the Compute Engine
         //And the Test Data Storage
@@ -50,7 +50,8 @@ class ComputeEngineIntegrationTest {
         //We run it fully thorugh the program, into the Data Strorage as well,
         //we should a output Config of Array of string
         clientApi.getInputConfig(list);                                                           
-        datastore.appendSingleResult(any(OutputConfig.class), computeEngine.compute(datastore.read(list)));
+        datastore.appendSingleResult(any(OutputConfig.class), 
+        computeEngine.compute(datastore.read(list)));
         clientApi.getOutputConfig();
     }
     @Test
