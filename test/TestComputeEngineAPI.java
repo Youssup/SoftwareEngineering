@@ -6,7 +6,8 @@ import project.OutputConfig;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
-
+import project.ComputingRequest;
+import project.ComputingResult;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.any;
 import org.junit.Test;
@@ -22,19 +23,18 @@ public class TestComputeEngineAPI
     public void testAlgorithmCompute(){
         ComputeEngineAPI ce = Mockito.mock(ComputeEngineAPI.class);
         when(ce.compute(any(Integer.class))).thenReturn("1");
-        ce.compute("1");
+        ce.compute(1);
     }
     @Test
     public void testRequest(){
         ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-        when(computeEngine.compute(any(ComputeRequest.class))).thenReturn(ComputeResult.SUCCESS);
-        ComputeRequest request = new ComputeRequest();
+        when(computeEngine.compute(any(ComputingRequest.class))).thenReturn(ComputingResult.SUCCESS);
+        ComputingRequest request = new ComputingRequest();
         computeEngine.compute(request);
     }
 }
 
-class ComputeEngineIntegrationTest
-{
+class ComputeEngineIntegrationTest {
     DataStorageAPI datastore = new DataStorageAPI();
     ComputeEngineAPI computeEngine = new ComputeEngineAPI();
     public void testComputeEngineIntegration() 

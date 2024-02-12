@@ -1,9 +1,9 @@
 package project;
 
-public class WritingResult implements WriteResult{
+public class ComputingRequest implements ComputeResult{
 
     @Override
-    public WriteResultStatus getStatus() {
+    public ComputeResultStatus getStatus() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getStatus'");
     }

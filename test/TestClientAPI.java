@@ -17,7 +17,7 @@ public class TestClientAPI {
     @Test
     public void testGetOutputConfig(){
         ClientAPI cAPI= Mockito.mock(ClientAPI.class);
-        when(cAPI.getOutputConfig()).thenReturn(new int[]{1,2});
+        when(cAPI.getOutputConfig()).thenReturn(new int[] {1,2});
     }
 
     @Test
