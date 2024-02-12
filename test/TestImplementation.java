@@ -22,7 +22,7 @@ class TestOutputConfig{
 class TestInputConfig{
     public List<Integer> input;
 
-    public TestInputConfig(List<Integer> data) {
+    public TestInputConfig(List<Integer> data){
         this.input = data;
     }
 }

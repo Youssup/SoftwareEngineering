@@ -19,15 +19,13 @@ import src.DataStorageAPI;
 public class TestComputeEngineAPI
 {
     @Test
-    public void testAlgorithmCompute() 
-    {
+    public void testAlgorithmCompute(){
         ComputeEngineAPI ce = Mockito.mock(ComputeEngineAPI.class);
         when(ce.compute(any(Integer.class))).thenReturn("1");
         ce.compute("1");
     }
     @Test
-    public void testRequest() 
-    {
+    public void testRequest(){
         ComputeEngineAPI ce = Mockito.mock(ComputeEngineAPI.class);
         when(ce.compute(any(ComputeRequest.class))).thenReturn(ComputeResult.SUCCESS);
         ComputeRequest request = new ComputeRequest();
@@ -38,10 +36,10 @@ public class TestComputeEngineAPI
 class ComputeEngineIntegrationTest
 {
     DataStorageAPI datastore = new DataStorageAPI();
-    ComputeEngineAPI ce = new ComputeEngineAPI();
+    ComputeEngineAPI computeEngine = new ComputeEngineAPI();
     public void testComputeEngineIntegration() 
     {
-        ClientAPI cApi = new ClientAPI();
+        ClientAPI clientApi = new ClientAPI();
         //It should have pointer, poitning to the Compute Engine
         //And the Test Data Storage
         ArrayList<Integer> list = new ArrayList<Integer>();
@@ -51,14 +49,15 @@ class ComputeEngineIntegrationTest
         //We add the list number to the Client API
         //We run it fully thorugh the program, into the Data Strorage as well,
         //we should a output Config of Array of string
-        cApi.getInputConfig(list);                                                           
-        datastore.appendSingleResult(any(OutputConfig.class), ce.compute(datastore.read(list);));
-        cApi.getOutputConfig();
+        clientApi.getInputConfig(list);                                                           
+        datastore.appendSingleResult(any(OutputConfig.class), computeEngine.compute(datastore.read(list);));
+        clientApi.getOutputConfig();
     }
     @Test
-    public void validation(OutputConfig output)
-    {                           //user input
-        if(output == ce.compute(output))
+    public void validation(OutputConfig output){                //user input
+        if(output == computeEngine.compute(output)){
+            
+        }
     }
 }
 //I know this is all wrong I'm lost
