@@ -1,5 +1,9 @@
+package test;
+import project.WritingResult;
+
 import java.util.List;
 import java.util.ArrayList;
+
 
 class TestOutputConfig{
     public List<String> output;
@@ -29,9 +33,9 @@ class TestDataStorageAPI{
         return inputConfig.input;
     }
 
-    public WriteResult testAppendSingleResult(TestOutputConfig outputConfig, String result){
+    public WritingResult testAppendSingleResult(TestOutputConfig outputConfig, String result){
         outputConfig.write(result);
-        return new WriteResult();
+        return new WritingResult();
     }      
 }
 

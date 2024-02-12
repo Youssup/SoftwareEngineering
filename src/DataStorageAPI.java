@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import project.DataStore;
 import project.InputConfig;
 import project.OutputConfig;
-import project.WriteResult;
+import project.WritingResult;
 
 // This is an empty implementation of the DataStore interface
 // We will functionaly call it DataStorage
@@ -25,8 +25,8 @@ public class DataStorageAPI implements DataStore{
         return list;
     }
 
-	public WriteResult appendSingleResult(OutputConfig output, String result){
-        WriteResult writeResult = new WriteResult(); //Need to implement WriteResult class
+	public WritingResult appendSingleResult(OutputConfig output, String result){
+        WritingResult writeResult = new WritingResult(); //Need to implement WriteResult class
         return writeResult;
     }
     

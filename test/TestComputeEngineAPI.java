@@ -12,6 +12,7 @@ import static org.mockito.Mockito.any;
 import org.junit.Test;
 import org.junit.platform.reporting.shadow.org.opentest4j.reporting.events.core.Data;
 
+import src.ClientAPI;
 import src.ComputeEngineAPI;
 import src.DataStorageAPI;
 
@@ -40,11 +41,19 @@ class ComputeEngineIntegrationTest
     ComputeEngineAPI ce = new ComputeEngineAPI();
     public void testComputeEngineIntegration() 
     {
+        ClientAPI cApi = new ClientAPI();
+        //It should have pointer, poitning to the Compute Engine
+        //And the Test Data Storage
         ArrayList<Integer> list = new ArrayList<Integer>();
         list.add(1);
         list.add(10);
-        list.add(25);                                                              //should be some input config/input?
+        list.add(25);
+        //We add the list number to the Client API
+        //We run it fully thorugh the program, into the Data Strorage as well,
+        //we should a output Config of Array of string
+        cApi.getInputConfig(list);                                                           
         datastore.appendSingleResult(any(OutputConfig.class), ce.compute(datastore.read(list);));
+        cApi.getOutputConfig();
     }
     @Test
     public void validation(OutputConfig output)
