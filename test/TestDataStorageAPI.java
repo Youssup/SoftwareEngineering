@@ -1,6 +1,10 @@
 package test;
 
+import project.InputConfig;
+import project.OutputConfig;
+import project.WriteResult;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
 import java.util.ArrayList;
@@ -15,33 +19,28 @@ public class TestDataStorageAPI {
         InputConfig inputConfig = mock(InputConfig.class);
 
         //Create a mock TestDataStore
-        TestDataStorageAPI dataStore = mock(DataStorage.class);
+        TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
 
         //Set up the case we will test
         //Read in the inputConfig and return something
-        when(dataStore.testRead(inputConfig)).thenReturn(new ArrayList<Integer>());
+        when(testRead()).thenReturn(new ArrayList<Integer>());
 
-        //Test the read method(I had to return an ArrayList<Integer> because I couldn't return an Iterable<Integer> object)
+        //Test the read methodd
         Iterable<Integer> results = dataStore.testRead(inputConfig);
-
     }
 
     @Test
-    public void testAppendSingleResult() {
+    public void testAppendSingleResult(OutputConfig outputConfig, String result){
+
+        //Create a mock OutputConfigs
+        TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
+
         //Create a mock OutputConfig (This is a simulated input object)
-        OutputConfig outputConfig = mock(OutputConfig.class);
-
-        //Create a dummy String result
-        String result = "Hey dude!";
-
-        //Create a mock TestDataStore object
-        DataStorage dataStore = mock(DataStorage.class);
-
         //Set up mock case for the test
-        when(dataStore.testAppendSingleResult(outputConfig, result)).thenReturn(mock(WriteResult.class));
+        when(dataStore.testAppendSingleResult(any(OutputConfig.class), any(String.class)))
+            .thenReturn(mock(WriteResult.class));
 
         //Test the appendSingleResult method
         WriteResult writeResult = dataStore.testAppendSingleResult(outputConfig, result);
-
     }
 }
