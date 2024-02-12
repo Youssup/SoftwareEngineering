@@ -10,8 +10,8 @@ import static org.mockito.Mockito.when;
 public class TestClientAPI {
     @Test
     public void testGetInputConfig(){
-        ClientAPI cApi= Mockito.mock(ClientAPI.class);
-        when(cApi.getInputConfig()).thenReturn(new int[]{4 , 5});
+        ClientAPI clientApi= Mockito.mock(ClientAPI.class);
+        when(clientApi.getInputConfig()).thenReturn(new int[]{4 , 5});
     }
 
     @Test
@@ -22,7 +22,7 @@ public class TestClientAPI {
 
     @Test
     public void testGetDelimeter(){
-        ClientAPI cApi= Mockito.mock(ClientAPI.class);
-        when(cApi.getDelimeter()).thenReturn('A');
+        ClientAPI clientApi= Mockito.mock(ClientAPI.class);
+        when(clientApi.getDelimeter()).thenReturn('A');
     }
 }

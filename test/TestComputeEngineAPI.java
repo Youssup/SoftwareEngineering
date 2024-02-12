@@ -56,9 +56,7 @@ class ComputeEngineIntegrationTest {
     }
     @Test
     public void validation(OutputConfig output){                //user input
-        if(output == computeEngine.compute(output)){
-            
-        }
+        //if(output == computeEngine.compute(output)){}
     }
 }
 //I know this is all wrong I'm lost
