@@ -22,7 +22,7 @@ public class ClientAPI implements ComputeRequest{
 	public int[] getOutputConfig(){
 
 
-        return new int[] {1,2};
+        return new int[] {1 , 2};
     }
 
     //returns a delimeter that the Client wants
