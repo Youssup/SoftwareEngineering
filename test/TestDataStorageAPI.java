@@ -33,7 +33,7 @@ public class TestDataStorageAPI extends DataStorageAPI{
         when(dataStorage.read(any(String.class), any(char.class))).thenReturn(mockList);
 
     }
-
+    }
     @Test
     public void testAppendSingleResult(Output outputConfig, String result){
     public void userTranslate(int[] output){
@@ -49,4 +49,6 @@ public class TestDataStorageAPI extends DataStorageAPI{
         //Test the appendSingleResult method
         WriteResult writeResult = dataStore.testAppendSingleResult(output, result);
     }
+}
+
 }
