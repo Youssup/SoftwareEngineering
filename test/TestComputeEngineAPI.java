@@ -1,7 +1,7 @@
 package test;
 import org.mockito.Mockito;
 
-import project.OutputConfig;
+import project.Output;
 
 import static org.mockito.Mockito.when;
 
@@ -50,12 +50,12 @@ class ComputeEngineIntegrationTest {
         //We run it fully thorugh the program, into the Data Strorage as well,
         //we should a output Config of Array of string
         clientApi.getInputConfig(list);                                                           
-        datastore.appendSingleResult(any(OutputConfig.class), 
+        datastore.appendSingleResult(any(Output.class), 
         computeEngine.compute(datastore.read(list)));
         clientApi.getOutputConfig();
     }
     @Test
-    public void validation(OutputConfig output){                //user input
+    public void validation(Output output){                //user input
         //if(output == computeEngine.compute(output)){}
     }
 }
