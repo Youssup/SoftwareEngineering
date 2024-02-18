@@ -15,8 +15,8 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
 
     // returns the string result of the two inputs using the ackermann function
     @Override
-    public String compute(int input1, int input2) {
-        return String.valueOf(ackermann(input1, input2));
+    public int compute(int input1, int input2) {
+        return ackermann(input1, input2);
     }
 
     // Computes the result using the ackermann function
@@ -30,12 +30,19 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
         }
     }
 
+    // Gives jobs to different classes and returns the final result back to the user
     @Override
     public ComputeResult compute(ComputeRequest request) {
         ClientAPI client = new ClientAPI();
         DataStorageAPI dataStorage = new DataStorageAPI();
-        int[] userInputArray = request.getInputConfig();
+        String userInput = request.getInputConfig();
         int[] outputConfig = request.getOutputConfig();
-
+        // get the String input from the client
+        // send that string to the data store
+        // receieve an array from the data store
+        // compute the entire array using the ackermann function (in sets of two)
+        // send the new array to the data store
+        // data store changes it back to a string
+        // send the string back to the client
     }
 }
