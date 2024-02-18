@@ -1,12 +1,9 @@
 package src;
 import java.util.ArrayList;
 import project.DataStore;
-import project.InputConfig;
-import project.OutputConfig;
+//import project.InputConfig; Outmoded by the use of String input
+//import project.OutputConfig; Outmoded by the use of int[] output
 import project.WritingResult;
-
-// This is an empty implementation of the DataStore interface
-// We will functionaly call it DataStorage
 
 public class DataStorageAPI implements DataStore{
     //Adding ComputeEngineAPI as a dependency
@@ -20,13 +17,33 @@ public class DataStorageAPI implements DataStore{
         //May not need constructor
     }
 
-    public Iterable<Integer> read(InputConfig input){
-        ArrayList<Integer> list = new ArrayList<Integer>();
+    public ArrayList<Integer> read(String input){
+        //Create object to hold the ArrayList of integers
+        ArrayList<Integer> list = new ArrayList<Integer>(); 
+        //We will separate the input string into an array of integers
+        //And add them individually to an ArrayList called list
+        for(int i = 0; i < input.length(); i++){
+            if (input.charAt(i) != ','){
+                list.add(Character.getNumericValue(input.charAt(i)));
+            }
+        }
+        //Returns an ArrayList of integers from the input string
         return list;
     }
 
-	public WritingResult appendSingleResult(OutputConfig output, String result){
-        WritingResult writeResult = new WritingResult(); //Need to implement WriteResult class
+    //This method will take the result of the computation and write it to a WritingResult object
+	public WritingResult userTranslate(int[] output){
+        //Create a WritingResult object to hold the result of the computation
+        WritingResult writeResult = new WritingResult(); 
+        //Create a string to hold the result of the computation
+        String result = "";
+        //We will add each integer in the output array to the result string
+        for(int i = 0; i < output.length; i++){
+            result += output[i];
+        }
+        //Set the result of the computation to the WritingResult object
+        writeResult.setResult(result);
+        //Return the WritingResult object
         return writeResult;
     }
     
