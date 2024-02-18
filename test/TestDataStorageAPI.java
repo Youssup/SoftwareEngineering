@@ -41,4 +41,4 @@ public class TestDataStorageAPI extends DataStorageAPI{
         //Test the appendSingleResult method
         WriteResult writeResult = dataStore.testAppendSingleResult(output, result);
     }
-}
+  }

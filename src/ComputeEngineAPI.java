@@ -3,8 +3,8 @@ package src;
 import project.ComputeEngine;
 import project.ComputeRequest;
 import project.ComputeResult;
-import project.ComputingRequest;
-import project.ComputingResult;
+//import project.ComputingRequest;
+//import project.ComputingResult;
 import project.ComputationCoordinator;
 
 public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
