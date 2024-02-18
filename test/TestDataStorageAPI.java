@@ -3,10 +3,11 @@ package test;
 import project.Input;
 import project.Output;
 import src.DataStorageAPI;
-import project.InputConfig;
-import project.OutputConfig;
+//import project.Input;
+//import project.Output;
 import project.WriteResult;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
@@ -18,17 +19,17 @@ public class TestDataStorageAPI extends DataStorageAPI{
 
     @Test
     public void testRead(String input){
-        DataStorageAPI dataStorageAPI = mock(DataStorageAPI.class);
+        DataStorageAPI dataStorageAPI = Mockito.mock(DataStorageAPI.class);
         when(dataStorageAPI.read(any(String.class))).thenReturn(input);
 
         String result = dataStorageAPI.read("test");
     }
     @Test
     public void userTranslate(int[] output){
-        DataStorageAPI dataStorageAPI = mock(DataStorageAPI.class);
+        DataStorageAPI dataStorageAPI = Mockito.mock(DataStorageAPI.class);
         when(dataStorageAPI.userTranslate(any(int[].class))).thenReturn(output);
 
-        int[] result = dataStorageAPI.userTranslate(new int[]{1,2,3});
+        int[] result = dataStorageAPI.userTranslate(new int[]{1, 2, 3});
         assert(result.equals(output));
         //Create a mock OutputConfigs
         TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
