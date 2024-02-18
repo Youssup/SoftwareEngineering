@@ -1,7 +1,7 @@
 package test;
 
-import project.InputConfig;
-import project.OutputConfig;
+import project.Input;
+import project.Output;
 import project.WriteResult;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.any;
@@ -16,7 +16,7 @@ public class TestDataStorageAPI {
     @Test
     public void testRead() {
         //Mock InputConfig
-        InputConfig inputConfig = mock(InputConfig.class);
+        Input inputConfig = mock(Input.class);
 
         //Create a mock TestDataStore
         TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
@@ -30,14 +30,14 @@ public class TestDataStorageAPI {
     }
 
     @Test
-    public void testAppendSingleResult(OutputConfig outputConfig, String result){
+    public void testAppendSingleResult(Output outputConfig, String result){
 
         //Create a mock OutputConfigs
         TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
 
         //Create a mock OutputConfig (This is a simulated input object)
         //Set up mock case for the test
-        when(dataStore.testAppendSingleResult(any(OutputConfig.class), any(String.class)))
+        when(dataStore.testAppendSingleResult(any(Output.class), any(String.class)))
             .thenReturn(mock(WriteResult.class));
 
         //Test the appendSingleResult method

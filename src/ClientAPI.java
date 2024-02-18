@@ -6,37 +6,28 @@ public class ClientAPI implements ComputeRequest{
    //private ClientAPI client=new ClientAPI();
 
 
-   //Client InputingConfig
-    public int[] getInputConfig(){
-        /*Client inputing the data
-        Scanner myObj=new Scanner(System.in);
-        System.out.println("Enter 2 integers: ");
-        int num1= myObj.nextInt();
-        int num2= myObj.nextInt();
-        myObj.close();*/
-        return new int[] {4 , 5};
-    //Returning the InputConfig with the written data
+   //get input
+    public String getInput(String input){
+        //Get the infomation fromt the Client
+        //Client is going to call getInput
+
+        return input;
     }
 
+    //getting th output
+	/*public String getOutput(String output){
 
-	public int[] getOutputConfig(){
 
-
-        return new int[] {1 , 2};
-    }
+        return output;
+    }*/
 
     //returns a delimeter that the Client wants
-	public char getDelimeter(){
-        char deli= 'A';
+	public char getDelimeter(char deli){
+    
         return deli;
     }
 }
 
 
 
-//Client may return 2 ints
-//Scanner myObj=new Scanner(System.in);
-//System.out.println("Enter 2 integers: ");
-//int num1= myObj.nextInt();
-//int num2= myObj.nextInt();
-//myObj.close();
+

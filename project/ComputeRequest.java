@@ -1,6 +1,6 @@
 package project;
 public interface ComputeRequest {
-	int[] getInputConfig();
-	int[] getOutputConfig();
-	char getDelimeter();
+	String getInput(String input);
+//	String getOutput(String output);
+	char getDelimeter(char deli);
 }
