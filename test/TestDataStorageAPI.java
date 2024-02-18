@@ -23,7 +23,6 @@ public class TestDataStorageAPI extends DataStorageAPI{
 
         String result = dataStorageAPI.read("test");
     }
-
     @Test
     public void userTranslate(int[] output){
         DataStorageAPI dataStorageAPI = mock(DataStorageAPI.class);
@@ -31,5 +30,15 @@ public class TestDataStorageAPI extends DataStorageAPI{
 
         int[] result = dataStorageAPI.userTranslate(new int[]{1,2,3});
         assert(result.equals(output));
+        //Create a mock OutputConfigs
+        TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
+
+        //Create a mock OutputConfig (This is a simulated input object)
+        //Set up mock case for the test
+        when(dataStore.testAppendSingleResult(any(Output.class), any(String.class)))
+            .thenReturn(mock(WriteResult.class));
+
+        //Test the appendSingleResult method
+        WriteResult writeResult = dataStore.testAppendSingleResult(output, result);
     }
 }
