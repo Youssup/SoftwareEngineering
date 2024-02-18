@@ -17,13 +17,13 @@ public class DataStorageAPI implements DataStore{
         //May not need constructor
     }
 
-    public ArrayList<Integer> read(String input){
+    public ArrayList<Integer> read(String input, char delimiter){
         //Create object to hold the ArrayList of integers
         ArrayList<Integer> list = new ArrayList<Integer>(); 
         //We will separate the input string into an array of integers
         //And add them individually to an ArrayList called list
         for(int i = 0; i < input.length(); i++){
-            if (input.charAt(i) != ','){
+            if (input.charAt(i) != delimiter){
                 list.add(Character.getNumericValue(input.charAt(i)));
             }
         }
