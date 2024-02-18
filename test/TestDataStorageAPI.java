@@ -41,6 +41,6 @@ public class TestDataStorageAPI {
             .thenReturn(mock(WriteResult.class));
 
         //Test the appendSingleResult method
-        WriteResult writeResult = dataStore.testAppendSingleResult(outputConfig, result);
+        WriteResult writeResult = dataStore.testAppendSingleResult(output, result);
     }
 }
