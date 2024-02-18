@@ -52,10 +52,10 @@ class ComputeEngineIntegrationTest {
         //We add the list number to the Client API
         //We run it fully thorugh the program, into the Data Strorage as well,
         //we should a output Config of Array of string
-        clientApi.getInputConfig(list);                                                           
-        datastore.appendSingleResult(any(OutputConfig.class), 
+        clientApi.getInput(list);                                                           
+        datastore.appendSingleResult(any(Output.class), 
         computeEngine.compute(datastore.read(list)));
-        clientApi.getOutputConfig();
+        clientApi.getOutput();
     }
 
     @Test
