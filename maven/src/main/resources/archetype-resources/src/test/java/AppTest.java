@@ -1,4 +1,4 @@
-package marven;
+package test;
 //package $org.example;
 
 import junit.framework.Test;

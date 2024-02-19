@@ -1,4 +1,4 @@
-package maven;
+package main;
 //package $org.example;
 
 /**

@@ -1,4 +1,5 @@
-package $org.example;
+package maven;
+//package $org.example;
 
 /**
  * Hello world!
