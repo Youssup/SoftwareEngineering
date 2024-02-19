@@ -1,5 +1,4 @@
-package main;
-//package $org.example;
+package $org.example;
 
 /**
  * Hello world!

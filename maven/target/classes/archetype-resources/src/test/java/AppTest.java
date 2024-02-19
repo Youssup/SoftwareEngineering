@@ -1,4 +1,4 @@
-package test\java;
+package test;
 //package $org.example;
 
 import junit.framework.Test;
