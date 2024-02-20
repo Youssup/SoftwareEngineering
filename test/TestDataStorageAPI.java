@@ -1,43 +1,40 @@
 package test;
 
-//import project.Input;
-import project.Output;
+import org.junit.jupiter.api.Assertions;
+import project.WritingResult;
 import src.DataStorageAPI;
-import project.WriteResult;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
-//import java.util.ArrayList;
 
 //We will use Mockito to simulate the behavior of our classes
 
 public class TestDataStorageAPI extends DataStorageAPI{
 
     @Test
-    public void testRead(String input){
+    public void testRead(){
         DataStorageAPI dataStorageAPI = Mockito.mock(DataStorageAPI.class);
-        when(dataStorageAPI.read(any(String.class))).thenReturn(input);
 
-        String result = dataStorageAPI.read("test");
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        when(dataStorageAPI.read(any(String.class), any(Character.class))).thenReturn(list);
+
+        Assertions.assertEquals(list,
+                dataStorageAPI.read("1, 2, 3, 4", ','));
     }
     @Test
-    public void userTranslate(int[] output){
-        DataStorageAPI dataStorageAPI = Mockito.mock(DataStorageAPI.class);
-        when(dataStorageAPI.userTranslate(any(int[].class))).thenReturn(output);
+    public void testUserTranslate(){
+        DataStorageAPI dataStorageAPI = mock(DataStorageAPI.class);
+        when(dataStorageAPI.userTranslate(any(int[].class))).thenReturn(new WritingResult());
 
-        int[] result = dataStorageAPI.userTranslate(new int[]{1, 2, 3});
-        assert(result.equals(output));
-        //Create a mock OutputConfigs
-        TestDataStorageAPI dataStore = mock(TestDataStorageAPI.class);
-
-        //Create a mock OutputConfig (This is a simulated input object)
-        //Set up mock case for the test
-        when(dataStore.testAppendSingleResult(any(Output.class), any(String.class)))
-            .thenReturn(mock(WriteResult.class));
-
-        //Test the appendSingleResult method
-        WriteResult writeResult = dataStore.testAppendSingleResult(output, result);
+        Assertions.assertEquals(new WritingResult(),
+                dataStorageAPI.userTranslate(new int[]{1, 2, 3, 4}));
     }
   }

@@ -1,5 +1,6 @@
 package test;
 import project.WritingResult;
+import src.DataStorageAPI;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -28,15 +29,19 @@ class TestInputConfig{
 }
 
 //This simulates the DataStorageAPI class
-class TestDataStorageAPI{
-    public Iterable<Integer> testRead(TestInputConfig inputConfig){
-        return inputConfig.input;
+/**
+ * Test-only implementation of DataStore that handles in-memory inputs and outputs
+ */
+class InMemTestDataStorage extends DataStorageAPI {
+    @Override
+    public ArrayList<Integer> read(String input, char delim){
+        return new ArrayList<>();
     }
 
-    public WritingResult testAppendSingleResult(TestOutputConfig outputConfig, String result){
-        outputConfig.write(result);
+    @Override
+    public WritingResult userTranslate(int[] output){
         return new WritingResult();
-    }      
+    }
 }
 
 public class TestImplementation{
@@ -53,18 +58,18 @@ public class TestImplementation{
         TestInputConfig inputConfig = new TestInputConfig(data);
 
         //Create a TestDataStorageAPI object
-        TestDataStorageAPI dataStore = new TestDataStorageAPI();
+        InMemTestDataStorage dataStore = new InMemTestDataStorage();
 
         //Test the read method from the DataStorageAPI
         //It takes in an inputConfig and returns an Iterable<Integer>
-        Iterable<Integer> results = dataStore.testRead(inputConfig);
+        dataStore.read("1, 2, 3, 4", ',');
 
         //Test the appendSingleResult method from the DataStorageAPI
         //It takes in an outputConfig and a result and returns a WriteResult
 
         //
 
-        //Still need to formate the WriteResult class
+        //Still need to format the WriteResult class
         //This will be the readable output at the end of our pipeline
 
         TestOutputConfig outputConfig = new TestOutputConfig();

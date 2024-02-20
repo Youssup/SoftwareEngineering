@@ -23,7 +23,7 @@ public class DataStorageAPI implements DataStore{
         //We will separate the input string into an array of integers
         //And add them individually to an ArrayList called list
         for(int i = 0; i < input.length(); i++){
-            if (input.charAt(i) != delimiter){
+            if (input.charAt(i) != delimiter || input.charAt(i) != ' '){
                 list.add(Character.getNumericValue(input.charAt(i)));
             }
         }
