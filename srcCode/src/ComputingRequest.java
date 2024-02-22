@@ -1,7 +1,5 @@
 package src;
 
-import src.ComputeResult.ComputeResultStatus;
-
 public class ComputingRequest implements ComputeRequest{
 
 
