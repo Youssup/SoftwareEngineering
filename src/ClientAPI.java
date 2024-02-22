@@ -8,7 +8,7 @@ public class ClientAPI implements ComputeRequest{
 
    //get input
     public String getInput(String input){
-        //Get the infomation fromt the Client
+        //Get the information from the Client
         //Client is going to call getInput
 
         return input;
@@ -21,7 +21,7 @@ public class ClientAPI implements ComputeRequest{
         return output;
     }*/
 
-    //returns a delimeter that the Client wants
+    //returns a delimiter that the Client wants
 	public char getDelimeter(char deli){
     
         return deli;

@@ -35,6 +35,6 @@ public class TestDataStorageAPI extends DataStorageAPI{
         when(dataStorageAPI.userTranslate(any(int[].class))).thenReturn(new WritingResult());
 
         Assertions.assertEquals(new WritingResult(),
-                dataStorageAPI.userTranslate(new int[]{1, 2, 3, 4}));
+                dataStorageAPI.userTranslate(any(int[].class)));
     }
   }

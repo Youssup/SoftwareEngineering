@@ -43,17 +43,17 @@ class ComputeEngineIntegrationTest {
 
     public void testComputeEngineIntegration() {
         ClientAPI clientApi = new ClientAPI();
-        // It should have pointer, poitning to the Compute Engine
+        // It should have pointer, pointing to the Compute Engine
         // And the Test Data Storage
         ArrayList<Integer> list = new ArrayList<Integer>();
         list.add(1);
         list.add(10);
         list.add(25);
         //We add the list number to the Client API
-        //We run it fully thorugh the program, into the Data Strorage as well,
+        //We run it fully through the program, into the Data Storage as well,
         //we should a output Config of Array of string
         clientApi.getInput(list);                                                           
-        datastore.appendSingleResult(any(Output.class), 
+        datastore.userTranslate(any(Output.class),
         computeEngine.compute(datastore.read(list)));
         clientApi.getOutput();
     }
