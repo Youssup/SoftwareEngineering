@@ -1,17 +1,16 @@
 package test;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import src.DataStorageAPI;
 import src.WritingResult;
-
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import java.util.ArrayList;
-
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.mock;
 
 //We will use Mockito to simulate the behavior of our classes
 
