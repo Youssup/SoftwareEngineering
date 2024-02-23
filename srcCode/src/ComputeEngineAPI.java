@@ -33,7 +33,7 @@ public class ComputeEngineAPI extends ComputingResult implements ComputeEngine, 
         // get the String input from the client
         String userInput = request.getInput("");
         // send that string to the data store and recieve an array back
-        ArrayList inputArray = dataStorage.read(userInput, 'a');
+        ArrayList<Integer> inputArray = dataStorage.read(userInput, 'a');
         // if the array is not even size return failure
         ComputingResult result = new ComputingResult();
         if (inputArray.size() % 2 != 0) {
