@@ -30,6 +30,7 @@ public class TestDataStorageAPI extends DataStorageAPI{
         Assertions.assertEquals(list,
                 dataStorageAPI.read("1, 2, 3, 4", ','));
     }
+    
     @Test
     public void testUserTranslate(){
         DataStorageAPI dataStorageAPI = new DataStorageAPI();
