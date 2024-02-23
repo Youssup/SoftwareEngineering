@@ -36,7 +36,7 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
         ArrayList inputArray = dataStorage.read(userInput, 'a');
         // if the array is not even size return failure
         ComputeResult result = new ComputeResult();
-        if (inputArray.length % 2 != 0) {
+        if (inputArray.size() % 2 != 0) {
             return new ComputeResult(result.FAILURE);
         }
         // compute the entire array using the ackermann function (in sets of two) and
