@@ -2,7 +2,8 @@ package src;
 
 import java.util.ArrayList;
 
-public class ComputeEngineAPI extends ComputingResult implements ComputeEngine, ComputationCoordinator {
+public class ComputeEngineAPI extends ComputingResult 
+		implements ComputeEngine, ComputationCoordinator {
     // needs the to decipher what the job is from the client
     // private ClientAPI client;
     // needs to retrieve the single outputs from the data storage
