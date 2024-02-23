@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
+public class ComputeEngineAPI extends ComputingResult implements ComputeEngine, ComputationCoordinator {
     // needs the to decipher what the job is from the client
     // private ClientAPI client;
     // needs to retrieve the single outputs from the data storage
@@ -35,9 +35,9 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
         // send that string to the data store and recieve an array back
         ArrayList inputArray = dataStorage.read(userInput, 'a');
         // if the array is not even size return failure
-        ComputeResult result = new ComputeResult();
-        if (inputArray.length % 2 != 0) {
-            return new ComputeResult(result.FAILURE);
+        ComputingResult result = new ComputingResult();
+        if (inputArray.size() % 2 != 0) {
+            return new ComputingResult();
         }
         // compute the entire array using the ackermann function (in sets of two) and
         // store it into a new array that will be returned back to dataStorage
@@ -55,6 +55,7 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
         WritingResult userResult = dataStorage.userTranslate(outputArray);
         // send the string back to the client somehow???
         // return the result which is successful.
-        return new ComputeResult(result.SUCCESS);
+        return new ComputingResult();
     }
+
 }
