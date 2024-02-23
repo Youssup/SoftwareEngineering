@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
     // needs the to decipher what the job is from the client
     // private ClientAPI client;
@@ -29,9 +31,9 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
     public ComputeResult compute(ComputeRequest request) {
         DataStorageAPI dataStorage = new DataStorageAPI();
         // get the String input from the client
-        String userInput = request.getInputConfig();
+        String userInput = request.getInput("");
         // send that string to the data store and recieve an array back
-        int[] inputArray = dataStorage.read(userInput);
+        ArrayList inputArray = dataStorage.read(userInput, 'a');
         // if the array is not even size return failure
         ComputeResult result = new ComputeResult();
         if (inputArray.length % 2 != 0) {
@@ -42,10 +44,10 @@ public class ComputeEngineAPI implements ComputeEngine, ComputationCoordinator {
         // keeps track of where to store results of computations inside new array
         int count = 0;
         // new array to store the results of the computations
-        int[] outputArray = new int[inputArray.length / 2 - 1];
+        int[] outputArray = new int[inputArray.size() / 2 - 1];
         // computes the results of the input array and stores them in the output array
-        for (int i = 0; i < inputArray.length; i += 2) {
-            outputArray[count] = ackermann(inputArray[i], inputArray[i + 1]);
+        for (int i = 0; i < inputArray.size(); i += 2) {
+            outputArray[count] = ackermann((int) inputArray.get(i), (int) inputArray.get(i + 1));
             count++;
         }
         // send the new array to the data store and recieve a user translated string
