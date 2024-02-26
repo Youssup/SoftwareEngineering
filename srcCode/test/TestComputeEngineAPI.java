@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import src.ClientAPI;
+import src.ComputeCoordinator;
 import src.ComputeEngineAPI;
 import src.ComputeRequest;
 import src.ComputeResult;
@@ -22,7 +23,8 @@ import src.Output;
 public class TestComputeEngineAPI {
     @Test
     public void testAlgorithmCompute() {
-        ComputeEngineAPI ce = Mockito.mock(ComputeEngineAPI.class);
+        ComputeEngineAPI ce = new ComputeEngineAPI();
+        ComputeCoordinator ce = new ComputeCoordinator();
         when(ce.compute(any(ComputeRequest.class))).thenReturn(ComputeResult.SUCCESS);
         ce.compute(1, 2);
     }
