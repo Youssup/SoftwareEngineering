@@ -1,22 +1,20 @@
 package test;
 
-import src.DataStorageAPI;
-
+import src.DataStore;
+import src.InputConfig;
+import src.OutputConfig;
 import src.WritingResult;
-
-import java.util.List;
-import java.util.ArrayList;
-import src.InputConfig;	
 
 public class TestDataStorageImplementation implements DataStore {
 
 	public Iterable<Integer> read(InputConfig input) {
-		return ((InMemInputConfig)input).getInputs();
+		InMemInputConfig inMemInput = new InMemInputConfig(1, 2, 3, 4, 5);
+		return inMemInput.getInputs();
 	}
 
 	@Override
-	public WriteResult appendSingleResult(OutputConfig output, String result, char delimiter) {
-		
+	public WritingResult userTranslate(OutputConfig output, String result, char delimiter) {
+		return new WritingResult(output.getFileName());
 	}
 
 }
