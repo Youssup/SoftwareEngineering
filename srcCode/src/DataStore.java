@@ -1,7 +1,8 @@
 package src;
 
 public interface DataStore {
-	Iterable<Integer> read(String input, char delimiter);
-	WriteResult userTranslate(int[] output);
+	Iterable<Integer> read(FileInput input);
+
+	WriteResult userTranslate(FileOutput output, String result, char delimiter);
 
 }

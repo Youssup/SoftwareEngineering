@@ -1,7 +1,6 @@
 package src;
 
-public class ComputingRequest implements ComputeRequest{
-
+public class ComputingRequest implements ComputeRequest {
 
 	@Override
 	public String getInput(String input) {
@@ -14,5 +13,5 @@ public class ComputingRequest implements ComputeRequest{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-    
+
 }
