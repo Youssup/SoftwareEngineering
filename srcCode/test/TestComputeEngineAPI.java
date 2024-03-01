@@ -32,7 +32,8 @@ public class TestComputeEngineAPI {
 	@Test
 	public void testRequest() {
 		ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-		when(computeEngine.compute(any(ComputeRequest.class))).thenReturn(ComputingResult.SUCCESS);
+		when(computeEngine.compute(any(ComputeRequest.class))).
+		thenReturn(ComputingResult.SUCCESS);
 		ComputingRequest request = new ComputingRequest();
 		computeEngine.compute(request);
 	}
