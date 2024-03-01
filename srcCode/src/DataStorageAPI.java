@@ -19,7 +19,7 @@ public class DataStorageAPI implements DataStore {
 		// May not need constructor
 	}
 	
-	public Iterable<Integer> read(InputConfig input){ 
+	public Iterable<Integer> read(FileInput input){ 
 		return new Iterable<Integer>() {
 			@Override
 			public Iterator<Integer> iterator() {
@@ -62,7 +62,7 @@ public class DataStorageAPI implements DataStore {
 
 	// This method will take the result of the computation and write it to a
 	// WritingResult object
-	public WritingResult userTranslate(OutputConfig output, String result, char delimiter) {
+	public WritingResult userTranslate(FileOutput output, String result, char delimiter) {
 		writeFile(output.getFileName(), result + delimiter);
 		return new WritingResult(output.getFileName());
 	}
@@ -76,5 +76,6 @@ public class DataStorageAPI implements DataStore {
 			e.printStackTrace();
 		}
 	}
+
 
 }
