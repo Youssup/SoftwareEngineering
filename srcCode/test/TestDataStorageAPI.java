@@ -14,29 +14,28 @@ import src.WritingResult;
 
 //We will use Mockito to simulate the behavior of our classes
 
-public class TestDataStorageAPI extends DataStorageAPI{
+public class TestDataStorageAPI extends DataStorageAPI {
 
-    @Test
-    public void testRead(){
-        DataStorageAPI dataStorageAPI = Mockito.mock(DataStorageAPI.class);
+	@Test
+	public void testRead() {
+		DataStorageAPI dataStorageAPI = Mockito.mock(DataStorageAPI.class);
 
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        when(dataStorageAPI.read(any(String.class), any(Character.class))).thenReturn(list);
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		when(dataStorageAPI.read(any(String.class), any(Character.class))).thenReturn(list);
 
-        Assertions.assertEquals(list,
-                dataStorageAPI.read("1, 2, 3, 4", ','));
-    }
-    
-    @Test
-    public void testUserTranslate(){
-        DataStorageAPI dataStorageAPI = new DataStorageAPI();
-        //when(dataStorageAPI.userTranslate(any(int[].class))).thenReturn(new WritingResult());
-        int[] te= {1, 2, 3, 4};
-        Assertions.assertEquals(new WritingResult("1234"),
-                dataStorageAPI.userTranslate(te));
-    }
-  }
+		Assertions.assertEquals(list, dataStorageAPI.read("1, 2, 3, 4", ','));
+	}
+
+	@Test
+	public void testUserTranslate() {
+		DataStorageAPI dataStorageAPI = new DataStorageAPI();
+		// when(dataStorageAPI.userTranslate(any(int[].class))).thenReturn(new
+		// WritingResult());
+		int[] te = { 1, 2, 3, 4 };
+		Assertions.assertEquals(new WritingResult("1234"), dataStorageAPI.userTranslate(te));
+	}
+}
