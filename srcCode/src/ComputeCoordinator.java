@@ -1,6 +1,6 @@
 package src;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class ComputeCoordinator implements ComputationCoordinator {
 	// Gives jobs to different classes and returns the final result which will then
@@ -39,7 +39,8 @@ public class ComputeCoordinator implements ComputationCoordinator {
 	public ComputeResult compute(ComputeRequest request) {
 		Iterable<Integer> integers = ds.read(request.getInput());
 		for (int val : integers) {
-			ds.appendSingleResult(request.getOutput(), ce.compute(val), request.getDelimeter());
+			ds.appendSingleResult(request.getOutput(),
+					ce.compute(val), request.getDelimeter());
 		}
 		return ComputeResult.SUCCESS;
 	}
