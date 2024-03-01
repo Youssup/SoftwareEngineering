@@ -13,7 +13,7 @@ public class ClientAPI implements ComputeRequest {
 		return input;
 	}
 
-	// getting th output
+	// getting the output
 	public String getOutput(String output) {
 
 		return output;
