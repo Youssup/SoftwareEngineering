@@ -1,6 +1,7 @@
 package test;
 
 import src.ComputeCoordinator;
+import src.DataStorageAPI;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import test.TestUser;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import src.ComputeEngine;
 
 public class TestMultiUser extends ComputeCoordinator{
 	
@@ -22,10 +24,7 @@ public class TestMultiUser extends ComputeCoordinator{
 	
 	@BeforeEach
 	public void initializeComputeEngine(){
-		//TODO 2: create an instance of your coordinator component; this is the component
-		// that the user will make requests to
-		// Store it in the 'coordinator' instance variable
-		coordinator = new ComputeCoordinator();
+		coordinator = new ComputeCoordinator(new DataStorageAPI(), new ComputeEngine());
 	}
 
 	@Test
