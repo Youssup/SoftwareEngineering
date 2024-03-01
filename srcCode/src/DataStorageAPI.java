@@ -1,6 +1,11 @@
 package src;
 
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Iterator;
 
 public class DataStorageAPI implements DataStore {
 	// Adding ComputeEngineAPI as a dependency
@@ -13,36 +18,63 @@ public class DataStorageAPI implements DataStore {
 		// We can decide what attributes to initialize here
 		// May not need constructor
 	}
-
-	public ArrayList<Integer> read(String input, char delimiter) {
-		// Create object to hold the ArrayList of integers
-		ArrayList<Integer> list = new ArrayList<>();
-		// We will separate the input string into an array of integers
-		// And add them individually to an ArrayList called list
-		for (int i = 0; i < input.length(); i++) {
-			if (input.charAt(i) != delimiter || input.charAt(i) != ' ') {
-				list.add(Character.getNumericValue(input.charAt(i)));
+	
+	public Iterable<Integer> read(InputConfig input){ 
+		return new Iterable<Integer>() {
+			@Override
+			public Iterator<Integer> iterator() {
+				return readFile(input.getFileName());
 			}
+		};
+	}
+	
+	// This method will read the file and return an iterator
+	public Iterator<Integer> readFile(String fileName){        // Create an iterator to read the file
+		Iterator<Integer> it = null;
+		try {
+			it = new Iterator<Integer>() {
+				BufferedReader reader = new BufferedReader(new FileReader(fileName));
+				String line = reader.readLine();
+				
+				@Override
+				public boolean hasNext() {
+					return line != null;
+				}
+
+
+				@Override
+				public Integer next() {
+					try {
+						int result = Integer.parseInt(line);
+						line = reader.readLine();
+						return result;
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					return null;
+				}
+			};
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		// Returns an ArrayList of integers from the input string
-		return list;
+		return it;
 	}
 
 	// This method will take the result of the computation and write it to a
 	// WritingResult object
-	public WritingResult userTranslate(int[] output) {
-		// Create a WritingResult object to hold the result of the computation
-		WritingResult writeResult = new WritingResult();
-		// Create a string to hold the result of the computation
-		String result = "";
-		// We will add each integer in the output array to the result string
-		for (int i = 0; i < output.length; i++) {
-			result += output[i];
+	public WritingResult userTranslate(OutputConfig output, String result, char delimiter) {
+		writeFile(output.getFileName(), result + delimiter);
+		return new WritingResult(output.getFileName());
+	}
+	
+	public void writeFile(String fileName, String line) {
+		try {
+			FileWriter writer = new FileWriter(new File(fileName));
+			writer.write(line);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		// Set the result of the computation to the WritingResult object
-		writeResult.setResult(result);
-		// Return the WritingResult object
-		return writeResult;
 	}
 
 }

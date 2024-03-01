@@ -4,4 +4,5 @@ module SEProject {
 
 	requires junit;
 	requires org.junit.jupiter.api;
+	requires org.mockito;
 }
