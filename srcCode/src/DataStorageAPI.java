@@ -8,15 +8,9 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class DataStorageAPI implements DataStore {
-	// Adding ComputeEngineAPI as a dependency
-	// This will take the responsibility of the computation
-	// and draw the result of the computation for translation
-
-	// private ComputeEngineAPI computeEngine;
 
 	public DataStorageAPI() {
-		// We can decide what attributes to initialize here
-		// May not need constructor
+		// We can decide what attributes to initialize here if needed
 	}
 	
 	public Iterable<Integer> read(FileInput input){ 
@@ -29,35 +23,53 @@ public class DataStorageAPI implements DataStore {
 	}
 	
 	// This method will read the file and return an iterator
-	public Iterator<Integer> readFile(String fileName){        // Create an iterator to read the file
-		Iterator<Integer> it = null;
+	// Create an iterator to read the file
+	public Iterator<Integer> readFile(String fileName){        
 		try {
-			it = new Iterator<Integer>() {
-				BufferedReader reader = new BufferedReader(new FileReader(fileName));
-				String line = reader.readLine();
-				
+			return new Iterator<Integer>() {
+				BufferedReader buff = new BufferedReader(new FileReader(fileName));
+				// read the first line so that hasNext() 
+				//correctly recognizes empty files as empty
+				String line = buff.readLine(); 
+				boolean closed = false;
+
+				@Override
+				public Integer next() {
+
+					int result = Integer.parseInt(line);
+					try {
+						line = buff.readLine();
+						if (!hasNext()) {
+							buff.close();
+							closed = true;
+						}
+					} catch (IOException e) {
+						throw new RuntimeException(e);
+					}
+					
+					return result;
+				}
+
 				@Override
 				public boolean hasNext() {
 					return line != null;
 				}
-
-
-				@Override
-				public Integer next() {
-					try {
-						int result = Integer.parseInt(line);
-						line = reader.readLine();
-						return result;
-					} catch (IOException e) {
-						e.printStackTrace();
+				
+				@SuppressWarnings("unused")
+				public void finish() {
+					if (!closed) {
+						try {
+							buff.close();
+							closed = true;
+						} catch (IOException e) {
+							throw new RuntimeException(e);
+						}
 					}
-					return null;
 				}
 			};
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		return it;
 	}
 
 	// This method will take the result of the computation and write it to a

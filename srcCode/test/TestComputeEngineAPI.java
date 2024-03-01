@@ -54,7 +54,7 @@ class ComputeEngineIntegrationTest {
 		// We run it fully through the program, into the Data Storage as well,
 		// we should a output Config of Array of string
 		String s = " ";
-		char c = 'A';
+		//char c = 'A';
 		clientApi.getInput(s);
 		// datastore.userTranslate(any(Output.class),
 		// computeEngine.compute(datastore.read(s,c)));
