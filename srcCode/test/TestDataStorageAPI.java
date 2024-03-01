@@ -12,8 +12,7 @@ import src.DataStorageAPI;
 import src.DataStore;
 import src.InputConfig;
 import src.OutputConfig;
-
-//We will use Mockito to simulate the behavior of our classes
+import src.WritingResult;
 
 public class TestDataStorageAPI extends DataStorageAPI {
 
@@ -37,7 +36,9 @@ public class TestDataStorageAPI extends DataStorageAPI {
 			
 		DataStorageAPI dataStore = new DataStorageAPI();
 		
-		Assert.assertEquals("success", dataStore.
+		WritingResult result = dataStore.userTranslate(outputConfig, "result", 'a');
+		
+		Assert.assertEquals(result, dataStore.
 					userTranslate(outputConfig, "result", 'a'));
 		
 	}
@@ -54,7 +55,7 @@ public class TestDataStorageAPI extends DataStorageAPI {
 		
 		InputConfig inputConfig = new InputConfig(file.getCanonicalPath());
 		
-		DataStore dataStore = new DataStorageAPI();
+		DataStorageAPI dataStore = new DataStorageAPI();
 		Iterator<Integer> iterator = dataStore.read(inputConfig).iterator();
 		Assert.assertEquals(true, iterator.hasNext());
 		Assert.assertEquals(1, iterator.next().intValue());
@@ -70,6 +71,7 @@ public class TestDataStorageAPI extends DataStorageAPI {
 		OutputConfig outputConfig = new OutputConfig(file.getCanonicalPath());
 
 		DataStore dataStore = new DataStorageAPI();
-		Assert.assertEquals("success", dataStore.userTranslate(outputConfig, "result", 'a'));
+		Assert.assertEquals("success", 
+				dataStore.userTranslate(outputConfig, "result", 'a'));
 	}
 }
