@@ -39,7 +39,7 @@ public class ComputeCoordinator implements ComputationCoordinator {
 	public ComputeResult compute(ComputeRequest request) {
 		Iterable<Integer> integers = ds.read(request.getInput());
 		for (int val : integers) {
-			ds.appendSingleResult(request.getOutput(),
+			ds.userTranslate(request.getOutput(),
 					ce.compute(val), request.getDelimeter());
 		}
 		return ComputeResult.SUCCESS;
