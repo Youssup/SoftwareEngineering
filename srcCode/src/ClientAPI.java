@@ -1,7 +1,6 @@
 package src;
 
-//import java.util.Scanner;
-public class ClientAPI implements ComputeRequest {
+public class ClientAPI {
 	// objects
 	// private ClientAPI client=new ClientAPI();
 
@@ -24,4 +23,5 @@ public class ClientAPI implements ComputeRequest {
 
 		return deli;
 	}
+
 }
