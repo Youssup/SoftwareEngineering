@@ -23,7 +23,7 @@ public class TestUser{
 		
 		// TODO 4: Call the appropriate method(s) on the coordinator to get it to 
 		// run the compute job specified by inputPath, outputPath, and delimiter
-		ComputeRequest request = null;
+		ComputeRequest request = new ComputeRequest();
 		ComputeResult coResult= coordinator.compute(request);
 	}
 
