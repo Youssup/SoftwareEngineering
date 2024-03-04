@@ -46,11 +46,13 @@ public class TestDataStorageAPI extends DataStorageAPI {
 	public void testRead() throws IOException{
 		File file = new File("dataStoreTest.testRead.txt.temp");
 		file.createNewFile();
-		
+		file.deleteOnExit();
 		FileWriter writer = new FileWriter(file, true);
 		writer.append("1\n");
 		writer.append("2\n");
+		writer.flush();
 		writer.close();
+		
 		
 		FileInput inputConfig = new FileInput(file.getCanonicalPath());
 		
@@ -61,7 +63,6 @@ public class TestDataStorageAPI extends DataStorageAPI {
 		Assert.assertEquals(true, iterator.hasNext());
 		Assert.assertEquals(2, iterator.next().intValue());
 		Assert.assertEquals(false, iterator.hasNext());
-		file.deleteOnExit();
 	}
 	
 	@Test

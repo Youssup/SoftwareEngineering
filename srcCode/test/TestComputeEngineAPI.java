@@ -6,36 +6,39 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 
 import org.junit.Test;
-//import org.junit.platform.reporting.shadow.org.opentest4j.reportin
-//g.events.core.Data;
 import org.mockito.Mockito;
 
 import src.ClientAPI;
-import src.ComputeCoordinator;
 import src.ComputeEngineAPI;
-import src.ComputeRequest;
-import src.ComputeResult;
-import src.ComputingRequest;
-import src.ComputingResult;
 import src.DataStorageAPI;
 import src.Output;
 
 public class TestComputeEngineAPI {
+	
+	@Test
+	public void smokeTestCompute() {
+        ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
+        when(computeEngine.compute(any(String.class))).thenReturn("4");
+        computeEngine.compute("1,2");
+    }
+	
+	
+	
 	@Test
 	public void testAlgorithmCompute() {
 		ComputeEngineAPI ce = new ComputeEngineAPI();
-		ComputeCoordinator ce = new ComputeCoordinator();
-		when(ce.compute(any(ComputeRequest.class))).thenReturn(ComputeResult.SUCCESS);
-		ce.compute(1, 2);
+		String input = "1,2";
+		
+		String result = ce.compute(input);
+		
+		assert(result.equals("4"));
 	}
 
 	@Test
-	public void testRequest() {
+	public void smokeTestRequest() {
 		ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-		when(computeEngine.compute(any(ComputeRequest.class))).
-		thenReturn(ComputingResult.SUCCESS);
-		ComputingRequest request = new ComputingRequest();
-		computeEngine.compute(request);
+		when(computeEngine.compute(any(String.class))).thenReturn("4");
+		computeEngine.compute("1,2");
 	}
 }
 

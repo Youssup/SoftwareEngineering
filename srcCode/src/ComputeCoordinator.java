@@ -3,45 +3,26 @@ package src;
 //import java.util.ArrayList;
 
 public class ComputeCoordinator implements ComputationCoordinator {
-	// Gives jobs to different classes and returns the final result which will then
-	// be used by the user
-	/*public ComputeResult compute(ComputeRequest request) {
-		DataStorageAPI dataStorage = new DataStorageAPI();
-		// get the String input from the client
-		String userInput = request.getInput("");
-		// send that string to the data store and recieve an array back
-		ArrayList<Integer> inputArray = dataStorage.read(userInput, 'a');
-		// compute the entire array using the ackermann function
-		// store it into a new array that will be returned back to dataStorage
-		// new array to store the results of the computations
-		int[] outputArray = new int[inputArray.size()];
-		// computes the results of the input array and stores them in the output array
-		for (int i = 0; i < inputArray.size(); i++) {
-			int count;
-			outputArray[count] = ackermann((int) inputArray.get(i));
-		}
-		// send the new array to the data store and recieve a user translated string
-		// back
-		WritingResult userResult = dataStorage.userTranslate(outputArray);
-		// send the string back to the client somehow???
-		// return the result which is successful.
-		return new ComputingResult();
-	} */
 	
 	private final DataStorageAPI ds;
 	private final ComputeEngineAPI ce;
 	
-	public ComputeCoordinator(DataStorageAPI ds, ComputeEngineAPI ce) {
-		this.ds = ds;
-		this.ce = ce;
+	public ComputeCoordinator() {
+		this.ds = new DataStorageAPI();
+		this.ce = new ComputeEngineAPI();
 	}
 	
-	public ComputeResult compute(ComputeRequest request) {
-		Iterable<Integer> integers = ds.read(request.getInput());
-		for (int val : integers) {
-			ds.userTranslate(request.getOutput(),
-					ce.compute(val), request.getDelimeter());
-		}
-		return ComputeResult.SUCCESS;
+	public ComputingResult compute(ComputingRequest request) {
+		Iterable<Integer> integers = ds.read(request.getInputConfig());
+		//This will take two values and compute the ackermann function
+		for (int i = 0; i < 2; i++) {
+			int m = integers.iterator().next();
+			int n = integers.iterator().next();
+			//Will need to retrofit this to use the correct delimiter
+			String result = ce.compute(m + "," + n);
+			ds.userTranslate(request.getOutputConfig(), result, request.getDelimeter());
+		}	
+		
+		return (ComputingResult) ComputingResult.SUCCESS;
 	}
 }
