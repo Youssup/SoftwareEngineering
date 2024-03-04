@@ -11,7 +11,7 @@ public class ComputeCoordinator implements ComputationCoordinator {
 		this.ds = new DataStorageAPI();
 		this.ce = new ComputeEngineAPI();
 	}
-	
+	//Needs to take in some type of list and then iterate
 	public ComputingResult compute(ComputingRequest request) {
 		Iterable<Integer> integers = ds.read(request.getInputConfig());
 		//This will take two values and compute the ackermann function

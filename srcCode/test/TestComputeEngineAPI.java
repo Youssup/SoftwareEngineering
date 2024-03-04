@@ -1,17 +1,16 @@
 package test;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-
 import org.junit.Test;
 import org.mockito.Mockito;
-
 import src.ClientAPI;
 import src.ComputeEngineAPI;
 import src.DataStorageAPI;
 import src.Output;
+
+import java.util.ArrayList;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 public class TestComputeEngineAPI {
 	
