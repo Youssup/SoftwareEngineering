@@ -15,14 +15,24 @@ public class ComputeCoordinator implements ComputationCoordinator {
 	public ComputingResult compute(ComputingRequest request) {
 		Iterable<Integer> integers = ds.read(request.getInputConfig());
 		//This will take two values and compute the ackermann function
-		for (int i = 0; i < 2; i++) {
-			int m = integers.iterator().next();
-			int n = integers.iterator().next();
-			//Will need to retrofit this to use the correct delimiter
-			String result = ce.compute(m + "," + n);
+		for (int i : integers) {
+			String result = ce.compute(i);
 			ds.userTranslate(request.getOutputConfig(), result, request.getDelimeter());
-		}	
+		}
+
+		
 		
 		return (ComputingResult) ComputingResult.SUCCESS;
+	}
+	
+	public void run(FileInput input, char delimiter) {
+		Iterable<Integer> integers = ds.read(input);
+		String result = "";
+		for (int i : integers) {
+			result = result + ce.compute(i) + delimiter;
+		}
+		FileOutput output= new FileOutput("runtest.txt.temp");
+		ds.userTranslate(output, result, delimiter);
+		System.out.println("Output: " + result);
 	}
 }

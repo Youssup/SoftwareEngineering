@@ -2,6 +2,7 @@ package test;
 
 import org.junit.Test;
 import org.mockito.Mockito;
+
 import src.ClientAPI;
 import src.ComputeEngineAPI;
 import src.DataStorageAPI;
@@ -9,7 +10,6 @@ import src.Output;
 
 import java.util.ArrayList;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class TestComputeEngineAPI {
@@ -17,8 +17,8 @@ public class TestComputeEngineAPI {
 	@Test
 	public void smokeTestCompute() {
         ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-        when(computeEngine.compute(any(String.class))).thenReturn("4");
-        computeEngine.compute("1,2");
+        when(computeEngine.compute(1)).thenReturn("2");
+        computeEngine.compute(1);
     }
 	
 	
@@ -26,7 +26,7 @@ public class TestComputeEngineAPI {
 	@Test
 	public void testAlgorithmCompute() {
 		ComputeEngineAPI ce = new ComputeEngineAPI();
-		String input = "1,2";
+		int input = 2;
 		
 		String result = ce.compute(input);
 		
@@ -36,8 +36,8 @@ public class TestComputeEngineAPI {
 	@Test
 	public void smokeTestRequest() {
 		ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-		when(computeEngine.compute(any(String.class))).thenReturn("4");
-		computeEngine.compute("1,2");
+		when(computeEngine.compute(2)).thenReturn("4");
+		computeEngine.compute(2);
 	}
 }
 

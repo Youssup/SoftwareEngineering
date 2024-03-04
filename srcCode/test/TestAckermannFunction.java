@@ -11,7 +11,7 @@ public class TestAckermannFunction {
 	@Test
 	public void testAckermannFunction() {
 		ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
-		when(computeEngine.compute("2,2")).thenReturn("7");
+		when(computeEngine.compute(2)).thenReturn("7");
 	}
 	
 	@Test

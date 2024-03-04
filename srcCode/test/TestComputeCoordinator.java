@@ -56,5 +56,28 @@ public class TestComputeCoordinator {
         assert(result.equals(ComputingResult.SUCCESS));
         file.deleteOnExit();
     }
+	@Test
+	public void testRun() throws IOException {
+		// Briefly create file for the input to reference
+		// Write 1,2 to the file
+		File file = new File("TestInput.txt.temp");
+		// Create the file
+		try {
+			file.createNewFile();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		FileWriter writer = new FileWriter(file, true);
+		writer.append("1\n");
+		writer.append("2\n");
+		writer.close();
+
+		ComputeCoordinator ce = new ComputeCoordinator();
+		FileInput inputConfig = new FileInput("TestInput.txt.temp");
+		char delimiter = ',';
+
+		ce.run(inputConfig, delimiter);
+	}
 }
 
