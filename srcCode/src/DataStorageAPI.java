@@ -24,7 +24,7 @@ public class DataStorageAPI implements DataStore {
 	
 	// This method will read the file and return an iterator
 	// Create an iterator to read the file
-	public Iterator<Integer> readFile(String fileName){        
+	public Iterator<Integer> readFile(String fileName){
 		try {
 			return new Iterator<Integer>() {
 				BufferedReader buff = new BufferedReader(new FileReader(fileName));
@@ -88,6 +88,6 @@ public class DataStorageAPI implements DataStore {
 			e.printStackTrace();
 		}
 	}
-
+	
 
 }

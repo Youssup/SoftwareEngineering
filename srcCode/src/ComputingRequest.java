@@ -2,25 +2,35 @@ package src;
 
 public class ComputingRequest implements ComputeRequest {
 
+	private final FileInput inputConfig;
+	private final FileOutput outputConfig;
+	private final char delimeter;
+	
+	// Constructor for testing purposes
+	public ComputingRequest() {
+		this.inputConfig = new FileInput("TestInput.txt");
+		this.outputConfig = new FileOutput("TestOutput.txt");
+		this.delimeter = ',';
+	}
+
+	public ComputingRequest(FileInput inputConfig, FileOutput outputConfig, char delimeter) {
+		this.inputConfig = inputConfig;
+		this.outputConfig = outputConfig;
+		this.delimeter = delimeter;
+	}
+
 	@Override
-	public String getInput() {
-		// TODO Auto-generated method stub
-		return null;
+	public FileInput getInputConfig() {
+		return inputConfig;
 	}
 	
+	public FileOutput getOutputConfig() {
+		return outputConfig;
+	}
 
 	@Override
 	public char getDelimeter() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-
-	@Override
-	public String getOutput() {
-		// TODO Auto-generated method stub
-		return null;
+		return delimeter;
 	}
 
 }

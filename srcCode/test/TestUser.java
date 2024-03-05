@@ -2,9 +2,11 @@ package test;
 
 import java.io.File;
 
+import src.FileInput;
+import src.FileOutput;
 import src.ComputeCoordinator;
-import src.ComputeRequest;
-import src.ComputeResult;
+import src.ComputingRequest;
+import src.ComputingResult;
 
 
 public class TestUser{
@@ -18,13 +20,20 @@ public class TestUser{
 	}
 
 	public void run(String outputPath) {
-		char delimiter = ';';
-		String inputPath = "test" + File.separatorChar + "testInputFile.test";
+		char delimiter = ',';
+		String inputPath = "srcCode" + File.separator + "test" 
+				+ File.separator + "testInputFile.test";
 		
 		// TODO 4: Call the appropriate method(s) on the coordinator to get it to 
 		// run the compute job specified by inputPath, outputPath, and delimiter
-		ComputeRequest request = null;
-		ComputeResult coResult= coordinator.compute(request);
+		ComputingRequest request = new ComputingRequest(new FileInput(inputPath), 
+				new FileOutput(outputPath), delimiter);
+		ComputingResult result = coordinator.run(request.getInputConfig(), delimiter);
+		if (result == ComputingResult.SUCCESS) {
+			System.out.println("Success!");
+		} else {
+			System.out.println("Failure!");
+		}
 	}
 
 }
