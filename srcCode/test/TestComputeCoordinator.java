@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class TestComputeCoordinator {
 	
-	@Test
+	/*@Test
 	public void smokeTestCompute() {
 		ComputeCoordinator computeEngine = Mockito.mock(ComputeCoordinator.class);
 		when(computeEngine.compute(any(ComputingRequest.class))).
@@ -27,8 +27,7 @@ public class TestComputeCoordinator {
 		assert (result.equals(ComputingResult.SUCCESS));
 	}
 	
-	@Test
-	public void testComputeCoordinator() throws IOException{
+	/*public void testComputeCoordinator() throws IOException{
 		//Briefly create file for the input to reference
 		//Write 1,2 to the file
 		File file = new File("TestInput.txt.temp");
@@ -55,12 +54,12 @@ public class TestComputeCoordinator {
 
         assert(result.equals(ComputingResult.SUCCESS));
         file.deleteOnExit();
-    }
+    } */
 	@Test
 	public void testRun() throws IOException {
 		// Briefly create file for the input to reference
 		// Write 1,2 to the file
-		File file = new File("TestInput.txt.temp");
+		File file = new File("TestRunInput.txt.temp");
 		// Create the file
 		try {
 			file.createNewFile();
@@ -74,7 +73,7 @@ public class TestComputeCoordinator {
 		writer.close();
 
 		ComputeCoordinator ce = new ComputeCoordinator();
-		FileInput inputConfig = new FileInput("TestInput.txt.temp");
+		FileInput inputConfig = new FileInput("TestRunInput.txt.temp");
 		char delimiter = ',';
 
 		ce.run(inputConfig, delimiter);

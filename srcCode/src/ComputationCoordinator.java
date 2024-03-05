@@ -1,5 +1,5 @@
 package src;
 
 public interface ComputationCoordinator {
-	ComputingResult compute(ComputingRequest request);
+	ComputingResult run(FileInput input, char delimiter);
 }

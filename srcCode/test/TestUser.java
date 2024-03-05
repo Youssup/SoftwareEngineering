@@ -28,7 +28,7 @@ public class TestUser{
 		// run the compute job specified by inputPath, outputPath, and delimiter
 		ComputingRequest request = new ComputingRequest(new FileInput(inputPath), 
 				new FileOutput(outputPath), delimiter);
-		ComputingResult result = coordinator.compute(request);
+		ComputingResult result = coordinator.run(request.getInputConfig(), delimiter);
 		if (result == ComputingResult.SUCCESS) {
 			System.out.println("Success!");
 		} else {
