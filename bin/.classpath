@@ -12,22 +12,22 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/joel0/Desktop/Software/Exerise1/byte-buddy-1.14.11.jar">
+	<classpathentry kind="lib" path="srcCode/byte-buddy-1.14.11.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/joel0/Desktop/Software/Exerise1/byte-buddy-agent-1.14.11.jar">
+	<classpathentry kind="lib" path="srcCode/byte-buddy-agent-1.14.11.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/joel0/Desktop/Software/Exerise1/mockito-core-5.10.0.jar">
+	<classpathentry kind="lib" path="srcCode/mockito-core-5.10.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/joel0/Desktop/Software/Exerise1/objenesis-3.3.jar">
+	<classpathentry kind="lib" path="srcCode/objenesis-3.3.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

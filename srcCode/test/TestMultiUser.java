@@ -56,6 +56,7 @@ public class TestMultiUser{
 					new File(multiThreadFilePrefix + i);
 			multiThreadedOut.deleteOnExit();
 			String multiThreadOutputPath = multiThreadedOut.getCanonicalPath();
+			System.out.println("multiThreadOutputPath: " + multiThreadOutputPath);
 			TestUser testUser = testUsers.get(i);
 			results.add(threadPool.submit(() -> testUser.run(multiThreadOutputPath)));
 		}
