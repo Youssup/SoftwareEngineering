@@ -4,5 +4,6 @@
     <excludeFromCompile>
       <directory url="file://$PROJECT_DIR$/maven/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
+    <bytecodeTargetLevel target="21" />
   </component>
 </project>
