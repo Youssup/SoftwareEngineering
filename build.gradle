@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-apply plugin: 'java'
-=======
 plugins {
     id 'com.google.protobuf' version '0.9.4'
 }
@@ -8,27 +5,20 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
->>>>>>> Stashed changes
 
 sourceSets {
 	main {
 	  java {
-<<<<<<< Updated upstream
 		srcDirs = ['src']
-=======
 		srcDirs = ['srcCode/src',
 					'build/generated/source/proto/main/grpc',
 					'build/generated/source/proto/main/java']
->>>>>>> Stashed changes
 	  }
 	}
 	test {
 	  java {
-<<<<<<< Updated upstream
 	     srcDirs = ['test']
-=======
 	     srcDirs = ['srcCode/test']
->>>>>>> Stashed changes
 	  }
 	 }
 }
@@ -37,9 +27,8 @@ repositories {
     mavenCentral()
 }
 
-<<<<<<< Updated upstream
-dependencies {
-=======
+dependencies
+
 test {
     useJUnitPlatform()
 }
@@ -59,17 +48,14 @@ dependencies {
     testImplementation "io.grpc:grpc-testing:${grpcVersion}"
     testImplementation "io.grpc:grpc-inprocess:${grpcVersion}"
 
->>>>>>> Stashed changes
-    testImplementation('junit:junit:4.12')
+    testImplementation('junit:junit:4.13.2')
     testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 	testImplementation('org.mockito:mockito-core:5.10.0')
 }
 
-<<<<<<< Updated upstream
 test {
     useJUnitPlatform()
 }
-=======
 protobuf {
     protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
     plugins {
@@ -79,4 +65,3 @@ protobuf {
         all()*.plugins { grpc {} }
     }
 }
->>>>>>> Stashed changes
