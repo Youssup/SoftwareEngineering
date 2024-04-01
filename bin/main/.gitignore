@@ -1,0 +1,17 @@
+/ClientAPI.class
+/ComputeEngineAPI.class
+/DataStorageAPI.class
+/ComputationCoordinator.class
+/ComputeEngine.class
+/ComputeRequest.class
+/ComputeResult$ComputeResultStatus.class
+/ComputeResult.class
+/ComputingRequest.class
+/ComputingResult.class
+/DataStore.class
+/Input.class
+/Output.class
+/WriteResult$WriteResultStatus.class
+/WriteResult.class
+/WritingResult$WriteResultStatus.class
+/WritingResult.class
