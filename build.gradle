@@ -9,7 +9,6 @@ apply plugin: 'idea'
 sourceSets {
 	main {
 	  java {
-		srcDirs = ['src']
 		srcDirs = ['srcCode/src',
 					'build/generated/source/proto/main/grpc',
 					'build/generated/source/proto/main/java']
@@ -17,7 +16,6 @@ sourceSets {
 	}
 	test {
 	  java {
-	     srcDirs = ['test']
 	     srcDirs = ['srcCode/test']
 	  }
 	 }
