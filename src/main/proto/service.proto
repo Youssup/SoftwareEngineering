@@ -1,3 +1,6 @@
+syntax = "proto3";
+
 message ProtoList {
-repeated string Item = 1;
+	repeated string Item = 1;
 }
+

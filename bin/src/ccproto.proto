@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+message FileOutput{
+    string filename = 1;
+ }
+
+ message WritingResult {
+    Result result = 1;
+    }
+
+message FileInput{
+    string filename = 1;
+}
+
+message Integers{
+    repeated int32 integers = 1;
+}
+
+enum Result{
+    UNKNOWN = 0;
+    SUCCESS = 1;
+    FAILURE = 2;
+}
+
+service DataStorageAPI{
+	rpc read(FileInput) returns (Integers);
+	rpc userTranslate(FileOutput) returns (WritingResult);
+}

@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import src.ClientAPI;
 import src.ComputeEngineAPI;
 import src.DataStorageAPI;
-import src.Output;
 
 import java.util.ArrayList;
 
@@ -19,8 +18,8 @@ public class TestComputeEngineAPI {
         ComputeEngineAPI computeEngine = Mockito.mock(ComputeEngineAPI.class);
         when(computeEngine.compute(1)).thenReturn("2");
         computeEngine.compute(1);
+        assert(computeEngine.compute(1).equals("2"));
     }
-	
 	
 	
 	@Test
@@ -66,8 +65,11 @@ class ComputeEngineIntegrationTest {
 	}
 
 	@Test
-	public void validation(Output output) { // user input
-		// if(output == computeEngine.compute(output)){}
+	public void validation() { // Tests computation of CE
+		ComputeEngineAPI ce = new ComputeEngineAPI();
+		int m = 1;
+		String result = ce.compute(m);
+		assert(result.equals("2"));
 	}
 }
 // I know this is all wrong I'm lost

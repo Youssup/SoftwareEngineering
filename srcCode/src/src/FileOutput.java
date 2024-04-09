@@ -1,7 +1,7 @@
 package src;
 
 public class FileOutput implements Output {
-	
+
 	private final String fileName;
 
 	public FileOutput(String fileName) {

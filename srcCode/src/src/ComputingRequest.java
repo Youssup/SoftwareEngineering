@@ -5,7 +5,7 @@ public class ComputingRequest implements ComputeRequest {
 	private final FileInput inputConfig;
 	private final FileOutput outputConfig;
 	private final char delimeter;
-	
+
 	// Constructor for testing purposes
 	public ComputingRequest() {
 		this.inputConfig = new FileInput("TestInput.txt");
@@ -23,7 +23,8 @@ public class ComputingRequest implements ComputeRequest {
 	public FileInput getInputConfig() {
 		return inputConfig;
 	}
-	
+
+	@Override
 	public FileOutput getOutputConfig() {
 		return outputConfig;
 	}

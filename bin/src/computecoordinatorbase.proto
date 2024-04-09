@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message FileInput {
+    string fileName = 1;
+    string delimiter = 2;
+}
+
+message CCRequest {
+    
+}
+
+message ComputingResult {
+    status status = 1;
+}
+
+service ComputeCoordinatorService {
+    rpc Run(FileInput) returns (ComputingResult);
+}
+
+enum status {
+	UNKNOWN = 0;
+    SUCCESS = 1;
+    FAILURE = 2;
+}
