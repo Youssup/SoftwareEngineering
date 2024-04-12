@@ -1,0 +1,34 @@
+
+syntax = "proto3";
+
+package ds;
+
+
+service ds{
+	rpc read(FileInput) returns (Integers);
+	rpc userTranslate(FileOutput) returns (WritingResult);
+}
+
+message FileInput{
+    string filename = 1;
+}
+
+message FileOutput{
+    string filename = 1;
+    string delimiter = 2;
+}
+
+message Integers{
+    repeated int32 integers = 1;
+}
+
+enum Result{
+	UNKNOWN = 0;
+    SUCCESS = 1;
+    FAILURE = 2;
+}
+
+message WritingResult{
+    Result result = 1;
+}
+

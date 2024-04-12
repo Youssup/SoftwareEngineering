@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package scienceRules;
+
+import "DataStorageAPI.proto";
+
+service ComputeEngineAPI{
+    rpc compute (ComputeEngineRequest) returns (OutputString);
+    rpc avl (InputValue) returns (OutputString);
+}
+
+message ComputeEngineRequest{
+    int32 input = 1;
+}
+
+message OutputString{
+    string output = 1;
+}
+
+message InputValue{
+    int32 value = 1;
+}

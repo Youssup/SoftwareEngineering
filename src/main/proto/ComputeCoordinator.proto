@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package scienceRules;
+
+import "DataStorageAPI.proto";
+
+service ComputeCoordinator {
+  rpc run (ComputeRequest) returns (ComputingResult) {}
+}
+
+message ComputeRequest {
+  FileInput file_input = 1;
+  string delimiter = 2;
+}
+
+message ComputingResult {
+  Result result = 1;
+} 

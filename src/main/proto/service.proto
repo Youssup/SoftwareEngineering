@@ -1,3 +1,0 @@
-message ProtoList {
-repeated string Item = 1;
-}
