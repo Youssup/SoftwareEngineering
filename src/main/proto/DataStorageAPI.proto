@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package scienceRules;
+
 service DataStorageAPI {
   rpc read (FileInput) returns (IntegerIterator) {}
   rpc userTranslate (FileOutput) returns (WritingResult) {} 
@@ -15,6 +17,8 @@ message FileInput {
 
 message FileOutput {
   string path = 1;
+  string result = 2;
+  string delimiter = 3;
 }
 
 enum Result {

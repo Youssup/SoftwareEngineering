@@ -8,7 +8,6 @@ public class ComputingResult implements ComputeResult {
 
 	}
 
-
 	@Override
 	public ComputeResultStatus getStatus() {
 		throw new UnsupportedOperationException("Unimplemented method 'getStatus'");

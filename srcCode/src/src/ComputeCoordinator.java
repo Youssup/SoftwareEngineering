@@ -11,7 +11,6 @@ public class ComputeCoordinator implements ComputationCoordinator {
 
 	private final DataStorageAPI ds;
 	private final ComputeEngineAPI ce;
-	//private final Computecoordinatorimpl cci;
 
 	public ComputeCoordinator() {
 		this.ds = new DataStorageAPI();

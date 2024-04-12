@@ -1,9 +1,11 @@
 syntax = "proto3";
 
+package scienceRules;
+
 import "DataStorageAPI.proto";
 
 service ComputeCoordinator {
-  rpc Compute (ComputeRequest) returns (ComputingResult) {}
+  rpc run (ComputeRequest) returns (ComputingResult) {}
 }
 
 message ComputeRequest {
@@ -13,4 +15,4 @@ message ComputeRequest {
 
 message ComputingResult {
   Result result = 1;
-}
+} 

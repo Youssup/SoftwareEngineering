@@ -3,32 +3,36 @@ package src;
 import java.util.Iterator;
 
 import io.grpc.stub.StreamObserver;
-import src.DataStorageAPIGrpc.DataStorageAPIImplBase;
-import src.DataStorageAPIOuterClass.FileInput;
-import src.DataStorageAPIOuterClass.FileOutput;
-import src.DataStorageAPIOuterClass.IntegerIterator;
-import src.DataStorageAPIOuterClass.WritingResult;
+import scienceRules.DataStorageAPIGrpc.DataStorageAPIImplBase;
+import scienceRules.DataStorageAPIOuterClass.FileInput;
+import scienceRules.DataStorageAPIOuterClass.FileOutput;
+import scienceRules.DataStorageAPIOuterClass.IntegerIterator;
+import scienceRules.DataStorageAPIOuterClass.WritingResult;
+
 
 public class DataStorageService extends DataStorageAPIImplBase {
+	
+	DataStorageAPI ds = new DataStorageAPI();
 
 	@Override
 	public void read(FileInput request, StreamObserver<IntegerIterator> responseObserver) {
-		Iterator<Integer> intIterator = null;
+		Iterator<Integer> response = null;
+		
 		try {
-			intIterator = DataStorageAPI.readFile(request.getPath());
+			response = DataStorageAPI.readFile(request.getPath());
 			
 			IntegerIterator.Builder builder = IntegerIterator.newBuilder();
 			
-			
+						
 			
 		} catch (Exception e) {
-	        intIterator = null;
+	        response = null;
 			e.printStackTrace();
 		}
 		
-		if (intIterator != null) {
-			while (intIterator.hasNext()) {
-				responseObserver.onNext(IntegerIterator.newBuilder().addValue(intIterator.next()).build());
+		if (response != null) {
+			while (response.hasNext()) {
+				responseObserver.onNext(IntegerIterator.newBuilder().addValue(response.next()).build());
 			}
 			responseObserver.onCompleted();
 		} else {
@@ -38,17 +42,19 @@ public class DataStorageService extends DataStorageAPIImplBase {
 
 	@Override
 	public void userTranslate(FileOutput request, StreamObserver<WritingResult> responseObserver) {
+WritingResult response = null;
+		
 		WritingResult.Builder builder = WritingResult.newBuilder();
-		
+	
 		try {
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+			src.FileOutput output = new src.FileOutput(request.getPath());
+		    ds.userTranslate(output, request.getResult(), request.getDelimiter().charAt(0));
+            response = builder.setResultValue(1).build();
+        } catch (Exception e) {
+            response = builder.setResultValue(2).build();
+            e.printStackTrace();
+        }
+		responseObserver.onNext(response);
+		responseObserver.onCompleted();
 	}
-
-
-	
-	
 }
