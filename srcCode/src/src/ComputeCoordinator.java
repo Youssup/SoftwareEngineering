@@ -38,19 +38,16 @@ public class ComputeCoordinator implements ComputationCoordinator {
 	}
 	
 	public ComputingResult run(FileInput input, FileOutput output, char delimiter) {
-		 ExecutorService threadPool = Executors.newFixedThreadPool(3);
-		 List<Future<?>> exceptionChecker= new ArrayList<>();
-		Iterable<Integer> integers = ds.read(input);
-		//final String result = "";
-		for(int i : integers) {
-			Callable<Void> startRun= () -> {
-				String result= " ";
-				result = result + ce.compute(i) + delimiter;
-				ds.userTranslate(output, result, delimiter);
-				return null;
-			};
-			exceptionChecker.add(threadPool.submit(startRun));
-		}
+		 Iterable<Integer> integers = ds.read(input);
+		 String result = " ";
+			for (int i : integers) {
+				if (!integers.iterator().hasNext()) {
+					result = result + ce.compute(i);
+				} else {
+				result = result + ce.compute(i)+ delimiter;
+				}
+			}
+			ds.userTranslate(output, result, delimiter);
 		return ComputingResult.SUCCESS;
 		//System.out.println("Output: " + result);
 	}
@@ -63,7 +60,7 @@ public class ComputeCoordinator implements ComputationCoordinator {
 		for (int i : integers) {
 			Callable<Void> startRun = () -> {
 				String result = " ";
-				result = result + ce.compute(i) + delimiter;
+				result = result + ce.compute(i);
 				ds.userTranslate(output, result, delimiter);
 				return null;
 			};
@@ -72,5 +69,25 @@ public class ComputeCoordinator implements ComputationCoordinator {
 		return ComputingResult.SUCCESS;
 		// System.out.println("Output: " + result);
 	}
-
+	
+	public ComputingResult run(FileInput input) {
+		ExecutorService threadPool = Executors.newFixedThreadPool(3);
+        List<Future<?>> exceptionChecker = new ArrayList<>();
+        Iterable<Integer> integers = ds.read(input);
+        // final String result = "";
+        for (int i : integers) {
+            Callable<Void> startRun = () -> {
+                String result = " ";
+                result = result + ce.compute(i) + ',';
+                FileOutput output = new FileOutput("runTestOutput.txt.temp");
+                ds.userTranslate(output, result, ',');
+                return null;
+            };
+            exceptionChecker.add(threadPool.submit(startRun));
+        }
+        return ComputingResult.SUCCESS;
+        // System.out.println("Output: " + result);
+    }
+	
 }
+

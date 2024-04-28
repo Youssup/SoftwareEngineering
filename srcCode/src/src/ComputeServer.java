@@ -50,6 +50,16 @@ public class ComputeServer {
 	  public static void main(String[] args) throws Exception {
 		  ComputeServer server = new ComputeServer(); 
 		  server.start();
+		  System.out.println(avl(40));
 		  server.blockUntilShutdown();
 	  }
+	  public static int avl(int height) {
+	 		if (height == 0) {
+				return 1;
+			} else if (height == 1) {
+			return 2;
+		} else {
+			return avl(height - 1) + avl(height - 2) + 1;
+			}
+		}
 }
