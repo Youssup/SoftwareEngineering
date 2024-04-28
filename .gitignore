@@ -4,6 +4,9 @@
 # Ignore build
 build/
 
+# Ignore temp files
+bin/
+
 # External tool builders
 .externalToolBuilders/
 
