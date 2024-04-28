@@ -39,13 +39,10 @@ public class TestAVL {
 		int result = computeEngine.avl(4);
 		assert (result == 12);
 	}
-<<<<<<< HEAD
 	@Test
 	public void testAVL6() {
 		ComputeEngineAPI computeEngine = new ComputeEngineAPI();
 		int result = computeEngine.avl(40);
 		assert (result == 433494436);
 	}
-=======
->>>>>>> main
 }

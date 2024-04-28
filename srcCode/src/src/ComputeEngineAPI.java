@@ -22,7 +22,6 @@ public class ComputeEngineAPI extends ComputingResult implements ComputeEngine {
 		return 2;
 	} else {
 		return avl(height - 1) + avl(height - 2) + 1;
-<<<<<<< HEAD
 		}
 	}
 
@@ -30,8 +29,6 @@ public class ComputeEngineAPI extends ComputingResult implements ComputeEngine {
 	public static void main(String[] args) {
 		ComputeEngineAPI ce = new ComputeEngineAPI();
 		System.out.println(ce.compute(40));
-=======
-	}
->>>>>>> main
+	
 	}
 }

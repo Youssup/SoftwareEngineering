@@ -90,26 +90,7 @@ public class DataStorageAPI implements DataStore {
 			e.printStackTrace();
 		}
 	}
-<<<<<<< HEAD
-	
-//	@Override
-//	public WritingResult userTranslate(FileOutput output, String result, char delimiter) {
-//		writeToFile(output.getFileName(), result + delimiter);
-//		
-//		return new WritingResult(output.getFileName());
-//	}
-//
-//	private void writeToFile(String fileName, String line) {
-//		// use try-with-resources syntax to automatically close the file writer
-//		// use the append-friendly version of the constructor
-//		try (FileWriter writer = new FileWriter(new File(fileName), true)) {
-//			writer.append(line + "\n");
-//		} catch (IOException e) {
-//			throw new RuntimeException(e);
-//		}
-//	}
-=======
->>>>>>> main
+
 
 
 }

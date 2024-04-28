@@ -36,7 +36,6 @@ public class ComputeCoordinator implements ComputationCoordinator {
 		return ComputingResult.SUCCESS;
 		//System.out.println("Output: " + result);
 	}
-<<<<<<< HEAD
 	
 	public ComputingResult run(FileInput input, FileOutput output, char delimiter) {
 		 Iterable<Integer> integers = ds.read(input);
@@ -92,8 +91,4 @@ public class ComputeCoordinator implements ComputationCoordinator {
 	
 }
 
-=======
 
-
-}
->>>>>>> main

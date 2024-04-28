@@ -13,11 +13,7 @@ public class ComputeServer {
 
 	  private void start() throws IOException {
 	    /* The port on which the server should run */
-<<<<<<< HEAD
 	    int port = 55504; 
-=======
-	    int port = 42069; 
->>>>>>> main
 	    
 	    server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
 	        .addService(new ComputecoordinatorService()) 
@@ -54,7 +50,6 @@ public class ComputeServer {
 	  public static void main(String[] args) throws Exception {
 		  ComputeServer server = new ComputeServer(); 
 		  server.start();
-<<<<<<< HEAD
 		  System.out.println(avl(40));
 		  server.blockUntilShutdown();
 	  }
@@ -67,8 +62,5 @@ public class ComputeServer {
 			return avl(height - 1) + avl(height - 2) + 1;
 			}
 		}
-=======
-		  server.blockUntilShutdown();
-	  }
->>>>>>> main
+	  
 }

@@ -27,11 +27,9 @@ public class TestMultiUser{
 		System.out.println("Current directory: " + System.getProperty("user.dir"));
 	}
 
-<<<<<<< HEAD
-	
-=======
+
 	//@Test
->>>>>>> main
+
 	public void compareMultiAndSingleThreaded() throws Exception {
 		int numThreads = 4;
 		List<TestUser> testUsers = new ArrayList<>();
