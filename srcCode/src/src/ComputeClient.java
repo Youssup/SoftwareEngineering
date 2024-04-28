@@ -36,12 +36,12 @@ public class ComputeClient {
 	    if (response.isInitialized()) {
 	    	System.err.println("Error: ");
 	    } else {
-	    	System.out.println("I'm joker now: ");
+	    	System.out.println("Initialized: ");
 	    }
 	  }
 
 	  public static void main(String[] args) throws Exception {
-	    String target = "localhost:42069";  // Boilerplate TODO: make sure the server/port match the server/port you want to connect to
+	    String target = "localhost:55504";  // Boilerplate TODO: make sure the server/port match the server/port you want to connect to
 
 	    ManagedChannel channel = Grpc.newChannelBuilder(target, InsecureChannelCredentials.create())
 	        .build();
@@ -51,6 +51,7 @@ public class ComputeClient {
 	    	System.out.println("Enter the path to the file: ");
 	    	String path = scanner.nextLine();
 	    	client.compute(path);
+	    	scanner.close();
 	    } finally {
 	      channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
 	    }

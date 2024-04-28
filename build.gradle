@@ -41,12 +41,13 @@ dependencies {
     implementation "io.grpc:grpc-services:${grpcVersion}"
     implementation "io.grpc:grpc-stub:${grpcVersion}"
     compileOnly "org.apache.tomcat:annotations-api:6.0.53"
-
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
     runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
 
     testImplementation "io.grpc:grpc-testing:${grpcVersion}"
     testImplementation "io.grpc:grpc-inprocess:${grpcVersion}"
-
+	testImplementation 'org.junit.platform:junit-platform-launcher:1.9.3'
     testImplementation('junit:junit:4.13.2')
     testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 	testImplementation('org.mockito:mockito-core:5.10.0')

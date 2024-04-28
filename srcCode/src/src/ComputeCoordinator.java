@@ -36,6 +36,41 @@ public class ComputeCoordinator implements ComputationCoordinator {
 		return ComputingResult.SUCCESS;
 		//System.out.println("Output: " + result);
 	}
-
+	
+	public ComputingResult run(FileInput input, FileOutput output, char delimiter) {
+		 ExecutorService threadPool = Executors.newFixedThreadPool(3);
+		 List<Future<?>> exceptionChecker= new ArrayList<>();
+		Iterable<Integer> integers = ds.read(input);
+		//final String result = "";
+		for(int i : integers) {
+			Callable<Void> startRun= () -> {
+				String result= " ";
+				result = result + ce.compute(i) + delimiter;
+				ds.userTranslate(output, result, delimiter);
+				return null;
+			};
+			exceptionChecker.add(threadPool.submit(startRun));
+		}
+		return ComputingResult.SUCCESS;
+		//System.out.println("Output: " + result);
+	}
+	
+	public ComputingResult run(FileInput input, FileOutput output, char delimiter, int numThreads) {
+		ExecutorService threadPool = Executors.newFixedThreadPool(numThreads);
+		List<Future<?>> exceptionChecker = new ArrayList<>();
+		Iterable<Integer> integers = ds.read(input);
+		// final String result = "";
+		for (int i : integers) {
+			Callable<Void> startRun = () -> {
+				String result = " ";
+				result = result + ce.compute(i) + delimiter;
+				ds.userTranslate(output, result, delimiter);
+				return null;
+			};
+			exceptionChecker.add(threadPool.submit(startRun));
+		}
+		return ComputingResult.SUCCESS;
+		// System.out.println("Output: " + result);
+	}
 
 }

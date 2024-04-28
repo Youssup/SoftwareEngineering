@@ -13,7 +13,7 @@ public class ComputeServer {
 
 	  private void start() throws IOException {
 	    /* The port on which the server should run */
-	    int port = 42069; 
+	    int port = 55504; 
 	    
 	    server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
 	        .addService(new ComputecoordinatorService()) 

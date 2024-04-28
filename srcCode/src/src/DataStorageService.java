@@ -21,7 +21,7 @@ public class DataStorageService extends DataStorageAPIImplBase {
 		try {
 			response = DataStorageAPI.readFile(request.getPath());
 			
-			IntegerIterator.Builder builder = IntegerIterator.newBuilder();
+			//IntegerIterator.Builder builder = IntegerIterator.newBuilder();
 			
 						
 			
