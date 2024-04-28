@@ -90,6 +90,7 @@ public class DataStorageAPI implements DataStore {
 			e.printStackTrace();
 		}
 	}
+<<<<<<< HEAD
 	
 //	@Override
 //	public WritingResult userTranslate(FileOutput output, String result, char delimiter) {
@@ -107,6 +108,8 @@ public class DataStorageAPI implements DataStore {
 //			throw new RuntimeException(e);
 //		}
 //	}
+=======
+>>>>>>> main
 
 
 }
