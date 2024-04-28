@@ -1,10 +1,9 @@
 # Ignore Gradle project-specific cache directory
 .gradle
 
-<<<<<<< Updated upstream
-# Ignore Gradle build output directory
-build
-=======
+# Ignore build
+build/
+
 # External tool builders
 .externalToolBuilders/
 
@@ -82,4 +81,3 @@ build
 *.iml
 *.ipr
 *.iws
->>>>>>> Stashed changes
