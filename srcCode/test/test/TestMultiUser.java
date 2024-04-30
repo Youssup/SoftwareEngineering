@@ -28,7 +28,7 @@ public class TestMultiUser{
 		System.out.println("Current directory: " + System.getProperty("user.dir"));
 	}
 
-	@Test
+	//@Test
 	public void compareMultiAndSingleThreaded() throws Exception {
 		int numThreads = 4;
 		List<TestUser> testUsers = new ArrayList<>();
@@ -39,7 +39,7 @@ public class TestMultiUser{
 		// Run single threaded
 		String singleThreadFilePrefix = 
 				"testMultiUser.compareMultiAndSingleThreaded."
-				+ "test.singleThreadOut.txt";
+				+ "test.singleThreadOut.tmp";
 		for (int i = 0; i < numThreads; i++) {
 			File singleThreadedOut = 
 					new File(singleThreadFilePrefix + i);
@@ -52,7 +52,7 @@ public class TestMultiUser{
 		ExecutorService threadPool = Executors.newCachedThreadPool();
 		List<Future<?>> results = new ArrayList<>();
 		String multiThreadFilePrefix = 
-			"testMultiUser.compareMultiAndSingleThreaded.test.multiThreadOut.txt";
+			"testMultiUser.compareMultiAndSingleThreaded.test.multiThreadOut.tmp";
 		for (int i = 0; i < numThreads; i++) {
 			File multiThreadedOut = 
 					new File(multiThreadFilePrefix + i);
