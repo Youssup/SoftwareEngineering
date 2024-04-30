@@ -75,21 +75,38 @@ public class DataStorageAPI implements DataStore {
 
 	// This method will take the result of the computation and write it to a
 	// WritingResult object
+//	@Override
+//	public WritingResult userTranslate(FileOutput output, String result, char delimiter) {
+//		writeFile(output.getFileName(), result + delimiter);
+//		return new WritingResult(output.getFileName());
+//	}
+//
+//	public void writeFile(String fileName, String line) {
+//		try {
+//			FileWriter writer = new FileWriter(new File(fileName));
+//			writer.write(line + "\n");
+//			writer.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
+	
 	@Override
 	public WritingResult userTranslate(FileOutput output, String result, char delimiter) {
-		writeFile(output.getFileName(), result + delimiter);
-		return new WritingResult(output.getFileName());
+	    writeFile(output.getFileName(), result + delimiter, true); // Pass true to append
+	    return new WritingResult(output.getFileName());
 	}
 
-	public void writeFile(String fileName, String line) {
-		try {
-			FileWriter writer = new FileWriter(new File(fileName));
-			writer.write(line + "\n");
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void writeFile(String fileName, String line, boolean append) {
+	    try {
+	        FileWriter writer = new FileWriter(new File(fileName), append); // Pass append
+	        writer.write(line + "\n");
+	        writer.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
+
 
 
 
