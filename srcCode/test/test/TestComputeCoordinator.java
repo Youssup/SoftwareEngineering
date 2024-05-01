@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 //import static org.mockito.ArgumentMatchers.any;
 //import static org.mockito.Mockito.when;
 import src.FileInput;
+import src.FileOutput;
+
 //import src.FileOutput;
 import java.io.File;
 import java.io.FileWriter;
@@ -59,24 +61,35 @@ public class TestComputeCoordinator {
 	public void testRun() throws IOException {
 		// Briefly create file for the input to reference
 		// Write 1,2 to the file
-		File file = new File("TestRunInput.txt.temp");
+//		File file = new File("TestRunInput.txt.temp");
 		// Create the file
-		try {
-			file.createNewFile();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		FileWriter writer = new FileWriter(file, true);
-		writer.append("1\n");
-		writer.append("2\n");
-		writer.close();
+//		try {
+//			file.createNewFile();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		FileWriter writer = new FileWriter(file, true);
+//		writer.append("1\n");
+//		writer.append("2\n");
+//		writer.close();
 
 		ComputeCoordinator ce = new ComputeCoordinator();
 		FileInput inputConfig = new FileInput("TestRunInput.txt.temp");
 		char delimiter = ',';
 
 		ce.run(inputConfig, delimiter);
+	}
+	
+	@Test
+	public void testRun2() {
+		ComputeCoordinator ce = new ComputeCoordinator();
+		FileInput inputConfig = new FileInput("TestRunInput.txt.temp");
+		char delimiter = ',';
+		FileOutput outputConfig = new FileOutput("TestRunOutput.txt.temp");
+		ce.run(inputConfig, outputConfig, delimiter);
+		
+		
 	}
 }
 

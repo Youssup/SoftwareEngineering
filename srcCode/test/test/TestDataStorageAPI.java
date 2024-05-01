@@ -76,4 +76,30 @@ public class TestDataStorageAPI extends DataStorageAPI {
 				dataStore.userTranslate(outputConfig, "result", 'a'));
 		file.deleteOnExit();
 	}
+	
+	@Test
+	public void testDataStorageAPI() throws IOException{
+		DataStorageAPI dataStore = new DataStorageAPI();
+		//Import path of existing file: dataStorageAPITestInput.txt
+		String path = "dataStorageAPITestInput.txt";
+		FileInput fileInput = new FileInput(path);
+		//Import path of existing file: dataStorageAPITestOutput.txt
+		String path2 = "dataStorageAPITestOutput.txt";
+		FileOutput fileOutput = new FileOutput(path2);
+		
+		//Test read method
+		Iterator<Integer> iterator = dataStore.read(fileInput).iterator();
+		Assert.assertEquals(true, iterator.hasNext());
+		Assert.assertEquals(4, iterator.next().intValue());
+		Assert.assertEquals(true, iterator.hasNext());
+		Assert.assertEquals(5, iterator.next().intValue());
+		Assert.assertEquals(true, iterator.hasNext());
+		Assert.assertEquals(6, iterator.next().intValue());
+		Assert.assertEquals(false, iterator.hasNext());
+		
+		//Test userTranslate method
+		WritingResult result = dataStore.userTranslate(fileOutput, "result", ',');
+		Assert.assertEquals(new WritingResult("dataStorageAPITestOutput.txt"), result);
+		
+	}
 }

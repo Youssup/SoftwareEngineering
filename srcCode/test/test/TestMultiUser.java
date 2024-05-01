@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TestMultiUser{
 	// TODO 1: change the type of this variable to the name you're using for your
@@ -43,7 +44,8 @@ public class TestMultiUser{
 			File singleThreadedOut = 
 					new File(singleThreadFilePrefix + i);
 			singleThreadedOut.deleteOnExit();
-			testUsers.get(i).run(singleThreadedOut.getCanonicalPath());
+			String singleThreadOutputPath = singleThreadedOut.getCanonicalPath();
+			testUsers.get(i).run(singleThreadOutputPath);
 		}
 		
 		// Run multi threaded
@@ -77,9 +79,9 @@ public class TestMultiUser{
 	}
 
 	private List<String> 
-		loadAllOutput( String prefix , int nuThreads ) throws IOException {
+		loadAllOutput( String prefix , int numThreads ) throws IOException {
 		List<String> result = new ArrayList<>();
-		for (int i = 0; i < nuThreads; i++) {
+		for (int i = 0; i < numThreads; i++) {
 			File multiThreadedOut = 
 					new File(prefix + i);
 			result.addAll(Files.readAllLines(multiThreadedOut.toPath()));
