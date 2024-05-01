@@ -33,8 +33,12 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
-    - name: Generate Proto files
-      run: ./gradlew generateProto
+  - name: Generate Proto files
+    run: chmod a+rwx gradlew
+      ./gradlew generateProto
+      # Add generated Proto files to the repository
+      git add path/to/generated/proto/files
+      git commit -m "Add generated Proto files"
 
     - name: Build with Gradle Wrapper
       run: chmod a+rwx gradlew; ./gradlew build
