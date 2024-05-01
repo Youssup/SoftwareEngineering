@@ -1,5 +1,7 @@
 package test;
 
+import java.math.BigInteger;
+
 public class AVLRuntimeTest {
     public static void main(String[] args) {
         long startTimeAVL = System.nanoTime();
@@ -38,20 +40,20 @@ public class AVLRuntimeTest {
         System.out.println("AVL dynamic programming time is: " + duration1 + " seconds");
 
     }
-
+    
     //Dynamic programming AVL function
-    public static int avl1(int height) {
+    public static BigInteger avl1(int height) {
         if (height == 0)
-            return 1;
+            return BigInteger.valueOf(1);
         if (height == 1)
-            return 2;
+            return BigInteger.valueOf(2);
 
-        int[] dp = new int[height + 1];
-        dp[0] = 1;
-        dp[1] = 2;
+        BigInteger[] dp = new BigInteger[height + 1];
+        dp[0] = BigInteger.valueOf(1);
+        dp[1] = BigInteger.valueOf(2);
 
         for (int i = 2; i <= height; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2] + 1;
+        	dp[i] = dp[i - 1].add(dp[i - 2]).add(BigInteger.valueOf(1));
         }
 
         return dp[height];
@@ -59,13 +61,13 @@ public class AVLRuntimeTest {
     }
 
     //Our original AVL function
-    public static int avl(int height) {
+    public static BigInteger avl(int height) {
         if (height == 0) {
-            return 1;
+            return BigInteger.valueOf(1);
         } else if (height == 1) {
-            return 2;
+            return BigInteger.valueOf(2);
         } else {
-            return avl(height - 1) + avl(height - 2) + 1;
+            return avl(height - 1).add(avl(height - 2)).add(BigInteger.valueOf(1));
         }
     }
 }

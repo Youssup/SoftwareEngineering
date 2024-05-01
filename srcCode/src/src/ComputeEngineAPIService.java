@@ -1,5 +1,7 @@
 package src;
 
+import java.math.BigInteger;
+
 import io.grpc.stub.StreamObserver;
 import scienceRules.ComputeEngineAPIGrpc.ComputeEngineAPIImplBase;
 import scienceRules.ComputeEngineAPIOuterClass.ComputeEngineRequest;
@@ -19,8 +21,8 @@ public class ComputeEngineAPIService extends ComputeEngineAPIImplBase{
 		OutputString response = null;
 		try {
 			int height = request.getValue();
-			int result = computeEngineAPI.avl(height);
-			response = OutputString.newBuilder().setOutput(Integer.toString(result)).build();
+			BigInteger result = computeEngineAPI.avl(height);
+			response = OutputString.newBuilder().setOutput((result).toString()).build();
 		} catch (Exception e) {
 			response = OutputString.newBuilder().setOutput("Error").build();
 		}

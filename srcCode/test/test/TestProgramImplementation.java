@@ -21,6 +21,7 @@ public class TestProgramImplementation {
 	//Lets create an output file, run the computation, then check the output file
 	//We have been getting weird outputs
 	//I just want to ensure that running a basic input file will give the expected output
+	//Test is failing so is currently bypassed
 	//@Test
 	public void testRun() throws IOException {
 		List<Integer> answers = new ArrayList<>();
@@ -47,6 +48,38 @@ public class TestProgramImplementation {
 		FileInput input = new FileInput("testFile.txt");
 		ComputingResult cr = cc.run(input, ',');
 		//assertEquals(2, cr.getResultValue());
+	}
+	
+	//Test the computeCoordinator and track the time taken to run the computation
+	//Use the old avl function
+	//@Test
+	public void testComputeCoordinator1() {
+		FileInput input = new FileInput("largeInput.txt");
+		FileOutput output = new FileOutput("largeOutput.txt");
+		ComputeCoordinator cc = new ComputeCoordinator();
+		long startTime = System.nanoTime();
+		ComputingResult cr = cc.run(input, output ,',');
+		long endTime = System.nanoTime();
+		long duration = (endTime - startTime);
+		duration = duration / 1000000000;
+		System.out.println("Time taken for old computation: " + duration + " seconds");
+		assertEquals(ComputingResult.class, cr.getClass());
+	}
+	
+	//Test the computeCoordinator and track the time taken to run the computation
+	//Use the new avl function
+	//@Test
+	public void testComputeCoordinator2() {
+		FileInput input = new FileInput("largeInput2.txt");
+		FileOutput output = new FileOutput("largeOutput2.txt");
+		ComputeCoordinator cc = new ComputeCoordinator();
+		long startTime = System.nanoTime();
+		ComputingResult cr = cc.run(input, output ,',');
+		long endTime = System.nanoTime();
+		long duration = (endTime - startTime);
+		duration = duration / 1000000000;
+		System.out.println("Time for Dynamic computation: " + duration + " seconds");
+		assertEquals(ComputingResult.class, cr.getClass());
 	}
 	
 }
