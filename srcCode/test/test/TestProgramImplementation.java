@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
 import src.ComputeCoordinator;
 import src.FileInput;
@@ -58,7 +58,7 @@ public class TestProgramImplementation {
 		FileOutput output = new FileOutput("largeOutput.txt");
 		ComputeCoordinator cc = new ComputeCoordinator();
 		long startTime = System.nanoTime();
-		ComputingResult cr = cc.run(input, output ,',');
+		ComputingResult cr = cc.run(input, output , ',');
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime);
 		duration = duration / 1000000000;
@@ -74,7 +74,7 @@ public class TestProgramImplementation {
 		FileOutput output = new FileOutput("largeOutput2.txt");
 		ComputeCoordinator cc = new ComputeCoordinator();
 		long startTime = System.nanoTime();
-		ComputingResult cr = cc.run(input, output ,',');
+		ComputingResult cr = cc.run(input, output , ',');
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime);
 		duration = duration / 1000000000;

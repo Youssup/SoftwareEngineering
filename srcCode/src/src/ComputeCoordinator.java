@@ -117,7 +117,8 @@ public class ComputeCoordinator implements ComputationCoordinator {
 //	@Override
 //	public ComputingResult run(FileInput input, char delimiter) {
 //	    ExecutorService computeThreadPool = Executors.newFixedThreadPool(3);
-//	    ExecutorService outputExecutor = Executors.newSingleThreadExecutor(); // Ensures ordered execution of output tasks
+//	    ExecutorService outputExecutor = 
+	//Executors.newSingleThreadExecutor(); // Ensures ordered execution of output tasks
 //	    List<Future<?>> futures = new ArrayList<>();
 //	    Iterable<Integer> integers = ds.read(input);
 //
@@ -135,7 +136,8 @@ public class ComputeCoordinator implements ComputationCoordinator {
 //	    // Wait for all tasks to complete
 //	    for (Future<?> future : futures) {
 //	        try {
-//	            future.get(); // Ensures that any exceptions thrown during task execution are handled
+//	            future.get(); 
+	// Ensures that any exceptions thrown during task execution are handled
 //	        } catch (InterruptedException | ExecutionException e) {
 //	            e.printStackTrace(); // Proper exception handling should be implemented
 //	        }
@@ -186,7 +188,8 @@ public class ComputeCoordinator implements ComputationCoordinator {
 			//System.out.println("Output: " + result);
 
 
-		public ComputingResult run(FileInput input, FileOutput output, char delimiter, int numThreads) {
+		public ComputingResult run(FileInput input,
+				FileOutput output, char delimiter, int numThreads) {
 			ExecutorService threadPool = Executors.newFixedThreadPool(numThreads);
 			List<Future<?>> exceptionChecker = new ArrayList<>();
 			Iterable<Integer> integers = ds.read(input);
@@ -213,7 +216,8 @@ public class ComputeCoordinator implements ComputationCoordinator {
 				Callable<Void> startRun = () -> {
 					String result = " ";
 					result = result + ce.compute(i) + ',';
-					FileOutput output = new FileOutput("runTestOutput.txt.temp");
+					FileOutput output 
+						= new FileOutput("runTestOutput.txt.temp");
 					ds.userTranslate(output, result, ',');
 					return null;
 				};

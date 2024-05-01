@@ -9,15 +9,17 @@ import io.grpc.InsecureChannelCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.StatusRuntimeException;
 import scienceRules.ComputeCoordinatorGrpc;
-import scienceRules.ComputeCoordinatorOuterClass.ComputeRequest;
+//import scienceRules.ComputeCoordinatorOuterClass.ComputeRequest;
 import scienceRules.ComputeCoordinatorOuterClass.ComputingResult;
 import scienceRules.ComputeCoordinatorGrpc.ComputeCoordinatorBlockingStub;
 
 public class ComputeClient { 
-	 private ComputeCoordinatorBlockingStub blockingStub = null; // Boilerplate TODO: update to appropriate blocking stub
+	 private ComputeCoordinatorBlockingStub blockingStub = null; 
+	 // Boilerplate TODO: update to appropriate blocking stub
 
 	  public ComputeClient(Channel channel) {
-	    blockingStub = ComputeCoordinatorGrpc.newBlockingStub(channel);  // Boilerplate TODO: update to appropriate blocking stub
+	    blockingStub = ComputeCoordinatorGrpc.newBlockingStub(channel);  
+	    // Boilerplate TODO: update to appropriate blocking stub
 	  }
 	  //C:\Users\sbran\Documents\SE\DarknessImprisonsMe\SoftwareEngineering\largeInput.txt
 	  // Boilerplate TODO: replace this method with actual client call/response logic
@@ -25,11 +27,15 @@ public class ComputeClient {
 		scienceRules.DataStorageAPIOuterClass.FileInput fileInput = 
 				scienceRules.DataStorageAPIOuterClass.FileInput.newBuilder().
 				setPath(path).build();
-		scienceRules.ComputeCoordinatorOuterClass.ComputeRequest request = scienceRules.ComputeCoordinatorOuterClass.ComputeRequest
-				.newBuilder().setFileInput(fileInput).setDelimiter(Character.toString(delimiter)).build();
+		scienceRules.ComputeCoordinatorOuterClass.ComputeRequest 
+		request = scienceRules.ComputeCoordinatorOuterClass.ComputeRequest
+				.newBuilder().setFileInput(fileInput).
+				setDelimiter(Character.toString(delimiter)).build();
 		
 		
-		//ComputeRequest request = ComputeRequest.newBuilder().setFileInput(fileInput).build(); // Boilerplate TODO: update to appropriate request
+		//ComputeRequest request = ComputeRequest.newBuilder().
+		//setFileInput(fileInput).build(); 
+		// Boilerplate TODO: update to appropriate request
 	    ComputingResult response;
 	    try {
 	      response = blockingStub.run(request);
@@ -45,12 +51,16 @@ public class ComputeClient {
 	  }
 
 	  public static void main(String[] args) throws Exception {
-	    String target = "localhost:55504";  // Boilerplate TODO: make sure the server/port match the server/port you want to connect to
+	    String target = "localhost:55504";  
+	    // Boilerplate TODO: make sure the server
+	    // /port match the server/port you want to connect to
 
-	    ManagedChannel channel = Grpc.newChannelBuilder(target, InsecureChannelCredentials.create())
+	    ManagedChannel channel = Grpc.newChannelBuilder
+	    		(target, InsecureChannelCredentials.create())
 	        .build();
 	    try {
-	    	ComputeClient client = new ComputeClient(channel); // Boilerplate TODO: update to this class name
+	    	ComputeClient client = new ComputeClient(channel); 
+	    	// Boilerplate TODO: update to this class name
 	    	Scanner scanner = new Scanner(System.in);
 	    	System.out.println("Enter the path to the file: ");
 	    	String path = scanner.nextLine();
