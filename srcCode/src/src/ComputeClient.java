@@ -53,10 +53,10 @@ public class ComputeClient {
 	  public static void main(String[] args) throws Exception {
 	    String target = "localhost:55504";  
 	    // Boilerplate TODO: make sure the server
-	    // /port match the server/port you want to connect to
+	    //port match the server/port you want to connect to
 
-	    ManagedChannel channel = Grpc.newChannelBuilder
-	    		(target, InsecureChannelCredentials.create())
+	    ManagedChannel channel = 
+	    		Grpc.newChannelBuilder(target, InsecureChannelCredentials.create())
 	        .build();
 	    try {
 	    	ComputeClient client = new ComputeClient(channel); 

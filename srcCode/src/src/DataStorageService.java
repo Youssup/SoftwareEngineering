@@ -34,8 +34,8 @@ public class DataStorageService extends DataStorageAPIImplBase {
 		
 		if (response != null) {
 			while (response.hasNext()) {
-				responseObserver.onNext
-				(IntegerIterator.newBuilder().addValue(response.next()).build());
+				responseObserver.onNext(IntegerIterator.newBuilder().
+						addValue(response.next()).build());
 			}
 			responseObserver.onCompleted();
 		} else {
@@ -44,8 +44,8 @@ public class DataStorageService extends DataStorageAPIImplBase {
 	}
 
 	@Override
-	public void userTranslate
-	(FileOutput request, StreamObserver<WritingResult> responseObserver) {
+	public void userTranslate(FileOutput request, 
+			StreamObserver<WritingResult> responseObserver) {
 WritingResult response = null;
 		
 		WritingResult.Builder builder = WritingResult.newBuilder();
