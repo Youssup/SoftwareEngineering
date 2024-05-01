@@ -7,8 +7,8 @@ import scienceRules.ComputeEngineAPIGrpc.ComputeEngineAPIImplBase;
 import scienceRules.ComputeEngineAPIOuterClass.ComputeEngineRequest;
 import scienceRules.ComputeEngineAPIOuterClass.InputValue;
 import scienceRules.ComputeEngineAPIOuterClass.OutputString;
-import scienceRules.ComputeEngineAPIOuterClass;
-import scienceRules.ComputeEngineAPIGrpc;
+//import scienceRules.ComputeEngineAPIOuterClass;
+//import scienceRules.ComputeEngineAPIGrpc;
 
 
 public class ComputeEngineAPIService extends ComputeEngineAPIImplBase{
@@ -31,7 +31,8 @@ public class ComputeEngineAPIService extends ComputeEngineAPIImplBase{
 		
 	}
 	@Override
-	public void compute(ComputeEngineRequest request, StreamObserver<OutputString> responseObserver) {
+	public void compute(ComputeEngineRequest request, 
+			StreamObserver<OutputString> responseObserver) {
 		// TODO Auto-generated method stub
 		super.compute(request, responseObserver);
 	}
