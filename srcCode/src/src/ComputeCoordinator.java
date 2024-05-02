@@ -53,27 +53,21 @@ public class ComputeCoordinator implements ComputationCoordinator {
 	@Override
     public ComputingResult run(FileInput input, char delimiter) {
         ExecutorService threadPool = Executors.newFixedThreadPool(3);
-        List<Future<?>> exceptionChecker = new ArrayList<>();
+        List<Future<String>> exceptionChecker = new ArrayList<>();
         Iterable<Integer> integers = ds.read(input);
         FileOutput output = new FileOutput("largeOutput.txt");
 
         for (int i : integers) {
-            Callable<Void> startRun = () -> {
-                try {
-                    semaphore.acquire(); // Acquire the semaphore before executing
-                    String result = ce.compute(i);
-                    ds.userTranslate(output, result, delimiter);
-                } finally {
-                    semaphore.release(); // Release the semaphore after execution
-                }
-                return null;
+            Callable<String> startRun = () -> {
+                return ce.compute(i);
             };
             exceptionChecker.add(threadPool.submit(startRun));
         }
-
+        
         exceptionChecker.forEach(future -> {
             try {
-                future.get();
+                String result= future.get();
+                ds.userTranslate(output, result, delimiter);
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
