@@ -20,7 +20,6 @@ public class ComputecoordinatorService extends ComputeCoordinatorImplBase {
 
 		} catch (Exception e) {
 			response = ComputingResult.newBuilder().setResultValue(2).build();
-			responseObserver.onError(e);
 		}
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
