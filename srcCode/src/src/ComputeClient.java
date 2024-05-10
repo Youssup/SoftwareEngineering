@@ -21,12 +21,10 @@ public class ComputeClient {
 
     public ComputeClient(Channel channel) {
         blockingStub = ComputeCoordinatorGrpc.newBlockingStub(channel);
-        // Create and set up the window.
         JFrame frame = new JFrame("ComputeClientGUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 
-        // Elements
         filePathField = new JTextField(20);
         JButton computeButton = new JButton("Compute");
         resultArea = new JTextArea(10, 30);
@@ -41,7 +39,6 @@ public class ComputeClient {
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.setVisible(true);
 
-        // Add action listener to button
         computeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,9 +49,11 @@ public class ComputeClient {
 
     public void compute(String path, char delimiter) {
         scienceRules.DataStorageAPIOuterClass.FileInput fileInput =
-                scienceRules.DataStorageAPIOuterClass.FileInput.newBuilder().setPath(path).build();
+                scienceRules.DataStorageAPIOuterClass.FileInput.newBuilder().
+                setPath(path).build();
         scienceRules.ComputeCoordinatorOuterClass.ComputeRequest request =
-                scienceRules.ComputeCoordinatorOuterClass.ComputeRequest.newBuilder().setFileInput(fileInput)
+                scienceRules.ComputeCoordinatorOuterClass.ComputeRequest.
+                newBuilder().setFileInput(fileInput)
                         .setDelimiter(Character.toString(delimiter)).build();
 
         try {
@@ -65,7 +64,8 @@ public class ComputeClient {
                 resultArea.setText("Error: Response not initialized.");
             }
         } catch (StatusRuntimeException e) {
-            resultArea.setText("Failed to call gRPC server: " + e.getStatus().getDescription());
+            resultArea.setText("Failed to call gRPC server: " + e.getStatus().
+            		getDescription());
             e.printStackTrace();
         }
     }
