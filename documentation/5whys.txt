@@ -1,0 +1,21 @@
+We had a lot of conflicts
+Why?
+
+We were all committing into the same branch
+Why?
+
+ We lacked an organized strategy for organizing our feature commits
+Why?
+
+We didn't realize how important version control was
+Why?
+
+We didn't come across any issues in version control early on so it was not emphasized
+Why?
+
+The beginning of the project did not involve class paths or anything that would affect another machine if pulled from Github.
+
+Actionable process change, implementing a clear version control strategy that specifies names for branches as well as a uniform commit message to clear any confusions of features as well as what was added. 
+Why?
+
+This will help in organizing any future problems when it comes to merge conflicts.
