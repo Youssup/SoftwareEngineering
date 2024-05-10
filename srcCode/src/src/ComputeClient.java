@@ -1,74 +1,89 @@
-package src; 
+package src;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
 
-import java.util.Scanner;
 import io.grpc.Channel;
 import io.grpc.Grpc;
 import io.grpc.InsecureChannelCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.StatusRuntimeException;
 import scienceRules.ComputeCoordinatorGrpc;
-//import scienceRules.ComputeCoordinatorOuterClass.ComputeRequest;
 import scienceRules.ComputeCoordinatorOuterClass.ComputingResult;
-import scienceRules.ComputeCoordinatorGrpc.ComputeCoordinatorBlockingStub;
 
-public class ComputeClient { 
-	 private ComputeCoordinatorBlockingStub blockingStub = null; 
-	 // Boilerplate TODO: update to appropriate blocking stub
+public class ComputeClient {
+    private ComputeCoordinatorGrpc.ComputeCoordinatorBlockingStub blockingStub;
+    private JTextField filePathField;
+    private JTextArea resultArea;
 
-	  public ComputeClient(Channel channel) {
-	    blockingStub = ComputeCoordinatorGrpc.newBlockingStub(channel);  
-	    // Boilerplate TODO: update to appropriate blocking stub
-	  }
-	  //C:\Users\sbran\Documents\SE\DarknessImprisonsMe\SoftwareEngineering\largeInput.txt
-	  // Boilerplate TODO: replace this method with actual client call/response logic
-	  public void compute(String path, char delimiter) {
-		scienceRules.DataStorageAPIOuterClass.FileInput fileInput = 
-				scienceRules.DataStorageAPIOuterClass.FileInput.newBuilder().
-				setPath(path).build();
-		scienceRules.ComputeCoordinatorOuterClass.ComputeRequest request = scienceRules.
-				ComputeCoordinatorOuterClass.ComputeRequest
-				.newBuilder().setFileInput(fileInput)
-				.setDelimiter(Character.toString(delimiter)).build();
-		
-		
-		//ComputeRequest request = 
-		//ComputeRequest.newBuilder().setFileInput(fileInput).build(); 
-		// Boilerplate TODO: update to appropriate request
-	    ComputingResult response;
-	    try {
-	      response = blockingStub.run(request);
-	    } catch (StatusRuntimeException e) { //Error here
-	    	e.printStackTrace();
-	      return;
-	    }
-	    if (response.isInitialized()) {
-	    	System.out.println("Initialized:");
-	    } else {
-	    	System.err.println("Error:");
-	    }
-	  }
+    public ComputeClient(Channel channel) {
+        blockingStub = ComputeCoordinatorGrpc.newBlockingStub(channel);
+        // Create and set up the window.
+        JFrame frame = new JFrame("ComputeClientGUI");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
 
-	  public static void main(String[] args) throws Exception {
-	    String target = "localhost:55504";  
-	    // Boilerplate TODO: make sure the server/port match the 
-	    //server/port you want to connect to
+        // Elements
+        filePathField = new JTextField(20);
+        JButton computeButton = new JButton("Compute");
+        resultArea = new JTextArea(10, 30);
+        resultArea.setEditable(false);
 
-	    ManagedChannel channel = 
-	    		Grpc.newChannelBuilder(target, InsecureChannelCredentials.create())
-	        .build();
-	    try {
-	    	ComputeClient client = new ComputeClient(channel); 
-	    	// Boilerplate TODO: update to this class name
-	    	Scanner scanner = new Scanner(System.in);
-	    	System.out.println("Enter the path to the file: ");
-	    	String path = scanner.nextLine();
-	    	client.compute(path, ',');
-	    	scanner.close();
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("File path:"));
+        panel.add(filePathField);
+        panel.add(computeButton);
+        panel.add(new JScrollPane(resultArea));
 
-	    } finally {
-	      channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
-	    }
-	  }
+        frame.getContentPane().add(BorderLayout.CENTER, panel);
+        frame.setVisible(true);
+
+        // Add action listener to button
+        computeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                compute(filePathField.getText(), ',');
+            }
+        });
+    }
+
+    public void compute(String path, char delimiter) {
+        scienceRules.DataStorageAPIOuterClass.FileInput fileInput =
+                scienceRules.DataStorageAPIOuterClass.FileInput.newBuilder().setPath(path).build();
+        scienceRules.ComputeCoordinatorOuterClass.ComputeRequest request =
+                scienceRules.ComputeCoordinatorOuterClass.ComputeRequest.newBuilder().setFileInput(fileInput)
+                        .setDelimiter(Character.toString(delimiter)).build();
+
+        try {
+            ComputingResult response = blockingStub.run(request);
+            if (response.isInitialized()) {
+                resultArea.setText("Initialized:\n" + response.toString());
+            } else {
+                resultArea.setText("Error: Response not initialized.");
+            }
+        } catch (StatusRuntimeException e) {
+            resultArea.setText("Failed to call gRPC server: " + e.getStatus().getDescription());
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        String target = "localhost:55504";
+        ManagedChannel channel =
+                Grpc.newChannelBuilder(target, InsecureChannelCredentials.create()).build();
+        try {
+            new ComputeClient(channel);
+        } finally {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                try {
+                    channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }));
+        }
+    }
 }

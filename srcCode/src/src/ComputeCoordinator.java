@@ -59,6 +59,9 @@ public class ComputeCoordinator implements ComputationCoordinator {
 
         for (int i : integers) {
             Callable<String> startRun = () -> {
+            	if(i != (int)i) {
+                    System.out.println("Error - Wrong input: " + i);
+                }
                 return ce.compute(i);
             };
             exceptionChecker.add(threadPool.submit(startRun));
