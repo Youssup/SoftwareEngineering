@@ -1,5 +1,5 @@
-# SoftwareEngineering
-###### Software Engineering project Yousup Song, Brandon Stewart, Joel Mathew
+# Computation Optimizer
+###### Built by Yousup Song, Brandon Stewart, Joel Mathew
 > [!WARNING]
 > This Software Diagram might be too cool for you
 > We will Compute the User Data using the minimum nodes for a given height for an AVL tree function
